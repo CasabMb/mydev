@@ -1,0 +1,215 @@
+.carousel-section {
+  padding: 10px 20px 80px 20px;
+  border-radius: var(--radius-m);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.carousel {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-slide {
+  position: absolute;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.02);
+  border-radius: 20px;
+  padding: 0 2rem 2rem 2rem;
+  margin-top: 2rem;
+  transition: all 0.7s ease;
+  opacity: 0;
+  transform: scale(0.8) translateX(100%);
+  pointer-events: none;
+  /* background-color: var(--Secondary-text-color); */
+}
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-section h2 {
+  color: var(--accent);
+  margin-bottom: 0;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  pointer-events: auto;
+  z-index: 3;
+}
+
+.carousel-slide.next {
+  opacity: 0.5;
+  transform: scale(0.8) translateX(100%);
+  z-index: 2;
+}
+
+.carousel-slide.prev {
+  opacity: 0;
+  transform: scale(0.8) translateX(-100%);
+  z-index: 1;
+}
+
+/* Image ordi */
+.slide-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  /* border-radius: 10px; */
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide.active .mockup {
+  transform: scale(1);
+}
+.carousel-slide.active .mockup:hover {
+  transform: perspective(800px) rotateY(5deg) scale(1.08);
+}
+
+.carousel-slide.next .mockup {
+  transform: scale(0.8);
+}
+
+/* Contenu texte */
+.slide-content {
+  flex: 1;
+  text-align: left;
+  color: var(--Secondary-text-color);
+  padding-left: 2rem;
+}
+
+.slide-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.slide-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.slide-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.slide-content li {
+  margin-bottom: 0.5rem;
+}
+
+.project-link {
+    background: var(--Principal-color);
+    font-weight: bold;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s;
+  color: var(--Secondary-text-color);
+}
+
+.project-link:hover {
+    background-color: var(--accent);
+}
+
+/* Boutons flèches */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--dark-brown-31);
+  border: none;
+  color: var(--Principal-color);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--dark-brown-60);
+    color: var(--Secondary-text-color);
+
+}
+
+.carousel-btn.left { left: 20px; }
+.carousel-btn.right { right: 20px; }
+
+/* Responsive */
+@media (max-width: 950px) {
+    .carousel-section {
+        margin-bottom: 2rem;
+    }
+    .carousel-slide {
+        flex-direction: column;
+        height: auto;
+        width: 85%;
+        text-align: center;
+    }
+    .slide-content {
+        padding: 1rem 0 0;
+        text-align: center;
+    }
+    .carousel-slide.next {
+        opacity: 0.5;
+        transform: scale(0.8) translateX(90%);
+        z-index: 2;
+    }
+    .carousel-slide.prev {
+        opacity: 0;
+        transform: scale(0.8) translateX(-90%);
+        z-index: 1;
+    }
+    .carousel-section h2 {
+        margin-bottom: 7rem;
+    }
+
+}
+
+@media (max-width: 600px) {
+  .mockup {
+    max-width: 300px;
+  }
+  .carousel-btn {
+    font-size: 1.4rem;
+    width: 35px;
+    height: 35px;
+  }
+  .slide-content h3 { font-size: 1.3rem; }
+  .slide-content p, .slide-content li { font-size: 0.9rem; }
+
+    .carousel-btn.left { left: 5px; }
+    .carousel-btn.right { right: 5px; }
+    .carousel-section h2 {
+        margin-bottom: 4rem;
+    }
+}

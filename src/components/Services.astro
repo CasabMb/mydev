@@ -1,0 +1,41 @@
+---
+import '../styles/Services.css';
+import maintenance from '../assets/icons/optimisation.png';
+import supports from '../assets/icons/affiche.png';
+import com from '../assets/icons/reseaux-sociaux.png';
+import { Image } from 'astro:assets';
+---
+
+
+<section class="services services-bg" id="services">
+    <div class="services-text">
+        <h2 class="hidden-top">Mes services</h2>
+        <!--  -->
+    </div>
+    <div class="services-cards scroll"  >
+        <div class="card card1" >
+          <a href="/SiteVitrine">
+            <h3>Création de site internet</h3>
+            <p>
+              Création de site léger, rapide et optimisé, pour une présence en ligne claire, efficace et adaptée à vos besoins, afin de renforcer votre visibilité et développer votre image professionnelle.
+            </p>
+          </a>
+        </div>
+        <div class="card card2">
+          <a href="/ReseauxSociaux">
+            <h3>Contenu réseaux sociaux</h3>
+            <p>
+              Création de posts et visuels adaptés à vos plateformes (Instagram, Facebook, LinkedIn…) afin de valoriser vos services, développer votre visibilité et engager votre communauté.
+            </p>
+          </a>
+        </div>
+        <div class="card card3">
+          <a href="/Communication">
+            <h3>Communication print et digital</h3>
+            <p>
+              Flyers, cartes de visite et affiches professionnelles créés en cohérence avec votre identité visuelle, pour renforcer votre présence hors ligne et marquer les esprits.
+            </p>
+          </a>
+        </div>
+    </div>
+</section>

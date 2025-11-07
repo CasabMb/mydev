@@ -1,0 +1,160 @@
+
+/* === FOND GRILLE === */
+.services{
+    padding: 5% 5% 0 5%;
+    position: relative;
+    box-shadow: inset 0 0 160px var(--Page-color); 
+}
+
+/* GRILLE */
+.services::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    /* 2 calques : horizontales + verticales */
+    background-image:
+        linear-gradient(to bottom, rgba(21, 21, 21, 0.06) 1px, transparent 1px),
+        linear-gradient(to right,  rgba(43, 43, 43, 0.06) 1px, transparent 1px);
+    background-size: 90px 90px, 90px 90px;   /* taille de la grille */
+    background-position: center;
+    pointer-events:none;
+}
+
+/* Assure que TON CONTENU passe au-dessus du fond */
+.services > *{
+    position: relative;
+    z-index: 2;
+}
+
+
+.services h2 {
+    margin: 60px 0 15px 0;
+}
+.services h3 {
+    text-align: center;
+}
+.services h4{
+    color: var(--Principal-color);
+    margin: 15px 0 0 10px;
+    display: flex;
+    align-self: start;
+}
+.services p {
+    width: 40%;
+}
+
+.services-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--Principal-color)
+}
+
+.services-text h2{
+    color: var(--Principal-color);
+    margin: 2rem 0;
+}
+.services-text p{
+    background: var(--sand-70);
+    border-radius: var(--radius-m);
+    padding: 10px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.services-cards {
+    display: flex;
+    gap: 8%;
+    position: relative;
+    margin-top: 7%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card a{
+    text-decoration: none;
+    padding: 0 5%;
+}
+.card p {
+    width: 100%;
+    color: var(--Principal-color);
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: clamp(24px, 4vw, 26px);
+    color: var(--Principal-color)
+}
+
+.card1, .card3 {
+    transform: translateY(-30%);
+}
+
+.card2 {
+    margin-top: 20px;
+}
+
+.scroll{
+    animation: scroll;
+    animation-timeline: view();
+}
+@keyframes scroll{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-80px);
+    }
+}
+
+/* RESPONSIVE  */
+@media (max-width: 920px) {
+    .services p {
+        width: 90%; 
+    }
+
+    .services-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30%;
+    }
+
+    .card {
+        width: 90%;
+        transform: none; 
+        margin: 0;
+
+        transition: transform 0.3s ease;
+    }
+
+    .card1, .card2, .card3 {
+        transform: none; 
+        margin-top: 0;
+    }
+    .card3{
+        margin-bottom: 20px;
+    }
+}
+
+
+@media (max-width: 850px) {
+    .services-cards {
+    margin-top: 20%;
+    }
+    .services h2 {
+        margin: 60px 0 0 0;
+        font-size: 4rem;
+    }
+}
+@media (max-width: 500px) {
+    .services-cards {
+    margin-top: 30%;
+    }
+    .services h2 {
+        font-size: 3rem;
+
+    }
+}

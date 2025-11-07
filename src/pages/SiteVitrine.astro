@@ -1,0 +1,104 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/Global.css';
+// import '../styles/Prestations.css';
+
+export const prerender = true;
+const title = "Création de site vitrine | Développeuse web - Minma Dev";
+const description = "Développeuse web basée en Seine-et-Marne, je conçois des sites vitrines modernes, rapides et optimisés SEO pour améliorer votre visibilité et renforcer votre image professionnelle.";
+
+
+---
+
+<Layout {title} {description}>
+	<Header />
+    <section class="section vitrine">
+        <div class="sv-h1-img h1-img">
+            <h1>Création de site vitrine </h1>
+        </div>
+
+        <div class='divh2'>
+            <h2>Création de Site vitrine </h2>
+        </div>
+        <div class='section-text'>
+            <p class="section-intro">
+                Vous êtes une entreprise, un commerçant, un artisan ou encore une association, 
+                et vous souhaitez gagner en visibilité sur Internet ? 
+                En tant que <span>développeuse web</span>, 
+                je vous accompagne dans la <span>création de votre site vitrine moderne, rapide et optimisé SEO</span>. 
+            </p>
+    
+            <div class="deco">
+                <h2>Pourquoi créer un site vitrine ?</h2>
+                <p>
+                    Un <span>site vitrine</span> est bien plus qu’une simple carte de visite en ligne. 
+                    Il permet de présenter votre activité, vos services et vos valeurs à vos futurs clients, 24h/24 et 7j/7. 
+                </p>
+            </div>
+            <div class='avantages'>
+                <h3 class="hidden-right once">Les avantages d’un site vitrine</h3>
+                <ul>
+                    <li>Améliorer votre <span>visibilité</span> grâce au référencement naturel (SEO)</li>
+                    <li>Renforcer votre crédibilité et votre image professionnelle</li>
+                    <li>Présenter clairement vos prestations, produits ou services</li>
+                    <li>Être trouvé facilement par vos clients potentiels via Google</li>
+                    <li>Disposer d’un site responsive, accessible et sécurisé</li>
+                </ul>
+        
+                <p>
+                    Mon objectif : vous proposer un <span>site vitrine adapté à vos besoins</span>, pensé pour vos clients, esthétique et performant. Chaque projet inclut une structure claire, un code optimisé et un design moderne.
+                </p>
+            </div>
+        </div>
+        <div class="container-bg">
+            <div class="offers">
+                <div class="offer">
+                    <h3>Création de site vitrine HTML/CSS</h3>
+                    <p>Un site léger et rapide, basé sur un template professionnel, parfait pour une première présence en ligne.</p>
+                    <h4>Dès 800€</h4>
+                </div>
+                <div class="offer">
+                    <h3>Création de site vitrine avec Astro</h3>
+                    <p>Une solution moderne et performante, idéale si vous recherchez un site conçu sur mesure, évolutif et pensé pour le long terme.</p>
+                    <h4>Dès 1200€</h4> 
+                </div>
+                <div class="offer">
+                    <h3>Création de site vitrine WordPress</h3>
+                    <p>Un site facile à administrer, qui vous permet de gérer vos contenus en toute autonomie, même sans connaissances techniques.</p>
+                    <h4>Dès 1000€</h4>
+                </div>
+            </div>
+            
+            <p class="conseil">
+                L'achat d'un hébergement et d'un nom de domaine est nécessaire et à prévoir avant la construction du site. Je vous donnerai un guide au format PDF pour vous accompagner dans ces étapes.
+            </p>
+    
+            <h3 class="hidden-left once">Chaque prestation inclut </h3>
+            <ul class="services">
+                <li>Entre 3 et 10 pages (selon la formule choisie)</li>
+                <li>Sécurisation complète de votre site</li>
+                <li>Optimisation SEO et référencement naturel</li>
+                <li>Page de contact avec formulaire</li>
+                <li>Rédaction des mentions légales</li>
+                <li>Design responsive adapté aux mobiles et tablettes</li>
+                <li>Optimisation de la vitesse de chargement</li>
+                <li>Conseils personnalisés pour bien gérer votre site au quotidien</li>
+                <li>Intégration de vos réseaux sociaux</li>
+            </ul>
+            <p class="cta-text">
+                En tant que <span>développeuse web basée en Seine-et-Marne</span>, 
+                    je travaille aussi bien avec des clients locaux qu’à distance. 
+            </p>
+            <div class="cta hidden-top">
+                <a href="/#contact" >
+                    Contactez-moi pour discuter de votre projet et obtenir un devis personnalisé.
+                </a>
+            </div>
+        </div>
+        
+    </section>
+
+    <Footer />
+</Layout>

@@ -1,0 +1,84 @@
+---
+import '../styles/Avis.css';
+import avis1 from '../assets/images/avis1.webp';
+import avis2 from '../assets/images/avis2.jpeg';
+import avis3 from '../assets/images/avis3.webp';
+---
+
+<section class="testimonials" id="avis">
+    <h2>Avis clients</h2>
+    <!-- <p class="intro">
+        Vous cherchez à développer votre visibilité en ligne grâce à un site vitrine professionnel et sur mesure ? 
+        Je serai ravie d’échanger avec vous. Ensemble, nous trouverons la meilleure solution digitale pour mettre en valeur votre activité.
+    </p> -->
+
+    <div class="testimonials-container">
+        <!-- Carte 1 -->
+        <div class="testimonial-card">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src={avis1.src} alt="Client 1" loading='lazy'>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+                <button class="flip-btn">↻</button>
+            </div>
+            <div class="card-back">
+                <p>
+                    "Un travail de grande qualité ! Mon site est rapide, moderne et parfaitement adapté à mon activité."
+                </p>
+                <span>- Marie B.</span>
+                <button class="flip-btn">↻</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Carte 2 -->
+        <div class="testimonial-card">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src={avis2.src} alt="Client 2" loading='lazy'>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+                <button class="flip-btn">↻</button>
+            </div>
+            <div class="card-back">
+                <p>
+                    "Marie a su comprendre mes besoins et me proposer un site élégant et efficace. Je recommande vivement !"
+                </p>
+                <span>- Sophie M.</span>
+                <button class="flip-btn">↻</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Carte 3 -->
+        <div class="testimonial-card">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src={avis3.src} alt="Client 3" loading='lazy'>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+                <button class="flip-btn">↻</button>
+            </div>
+            <div class="card-back">
+                <p>
+                    "Très professionnelle et à l’écoute. Le résultat final dépasse mes attentes, merci encore !"
+                </p>
+                <span>- Julien P.</span>
+                <button class="flip-btn">↻</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+        const inner = card.querySelector('.card-inner');
+        const buttons = card.querySelectorAll('.flip-btn');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                inner.classList.toggle('flipped');
+            });
+        });
+    });
+
+</script>

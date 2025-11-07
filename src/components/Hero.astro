@@ -1,0 +1,76 @@
+---
+import '../styles/Hero.css';
+import Slider from './Slider.astro';
+---
+
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <h1>Développement Web & Design Graphique</h1>
+    <p>
+      Création de sites internet performants et supports visuels professionnels,<br />
+      pour une présence en ligne et hors ligne claire et impactante
+    </p>
+    <a href="#contact" class="cta-btn">Discutons de votre projet</a>
+  </div>
+
+  <div class="circular-text-container">
+    <div class="circular-text" id="circularText"></div>
+  </div>
+</section>
+
+<Slider />
+
+<!-- ✅ JS pur, pas de is:client, pas d’annotations TS -->
+<script is:inline lang="js">
+  function createCircularText(element, text, radius = 60) {
+    const letters = text.split("");
+    const angleStep = 360 / letters.length;
+
+    letters.forEach((letter, i) => {
+      const span = document.createElement("span");
+      const rotation = i * angleStep;
+      span.style.transform = `
+        rotate(${rotation}deg)
+        translate(${radius}px)
+        rotate(90deg)
+      `;
+      span.textContent = letter;
+      element.appendChild(span);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const circularText = document.getElementById("circularText");
+    if (circularText) {
+      createCircularText(circularText, "✦ MINMA DEV ✦ DÉVELOPPEUSE WEB");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          circularText.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(circularText);
+    }
+
+    const bg = document.querySelector('.hero-bg');
+    if (bg && bg instanceof HTMLElement) {
+      let latestScroll = 0;
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        latestScroll = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scale = Math.min(1 + latestScroll / 1000, 1.1);
+            bg.style.transform = `scale(${scale})`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  });
+</script>

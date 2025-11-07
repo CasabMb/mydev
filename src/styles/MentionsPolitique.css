@@ -1,0 +1,21 @@
+#mentions-legales, #politique-confidentialite{
+    width: 80%;
+    margin: auto auto 50px auto;
+}
+
+#mentions-legales span{
+    font-weight: bold;
+    font-family: 'Bestigia';
+    letter-spacing: 2px;
+}
+#mentions-legales h1, #politique-confidentialite h1{
+    text-align: center;
+    margin: 40px 0;
+}
+
+#mentions-legales p{
+    margin-bottom: 10px;
+}
+#politique-confidentialite h3{
+    margin-top: 10px;
+}

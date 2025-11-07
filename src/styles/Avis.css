@@ -1,0 +1,145 @@
+.testimonials {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.testimonials h2 {
+    font-size: clamp(28px, 5vw, 36px);
+    margin-bottom: 1rem;
+}
+
+.testimonials .intro {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Conteneur des cartes */
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Carte */
+.testimonial-card {
+    width: 250px;
+    height: 320px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+
+/* Faces */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    background: var(--dark-brown-41); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Face avant */
+.card-front img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    font-size: 1.2rem;
+
+}
+
+/* Face arrière */
+.card-back {
+    transform: rotateY(180deg);
+    padding: 2rem 1rem;
+}
+
+.card-back p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.card-back span {
+    font-weight: bold;
+    color: var(--Principal-color);
+}
+/* Bouton flip */
+.flip-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--Principal-color);
+    color: var(--Secondary-text-color);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.flip-btn:hover {
+    background: var(--accent);
+}
+
+/* Positionnement spécifique aux faces */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    background: var( --dark-brown-41);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+    .testimonial-card:hover .card-inner {
+        transform: rotateY(180deg);
+    }
+    /* .flip-btn{
+        display: none;
+    } */
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        width: 220px;
+        height: 300px;
+    }
+}

@@ -1,0 +1,78 @@
+---
+import Logo2 from '../assets/images/marie-dev-developpeuse-web-site-vitre-seine-et-marne.webp';
+import '../styles/Header.css';
+import { Image } from 'astro:assets';
+---
+
+<header>
+	<div class="logo">
+		<a href="/">
+			<Image src={Logo2} alt="logo-mc-web-developpement_blanc" loading="eager" class="photo-id" />
+		</a>
+	</div>
+
+	<!-- Bouton burger -->
+    <button class="burger" aria-label="Menu" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+	<nav>
+		<ul>
+			<li><a href="/#apropos" class="nav-link">À propos</a></li>
+
+			<!-- Dropdown -->
+			<li class="dropdown">
+				<div class="dropdown-header">
+					<a href="/#services" class="nav-link">Services</a>
+					<button class="dropdown-toggle" aria-label="Ouvrir le menu Services">
+					<span class="arrow"></span>
+					</button>
+				</div>
+				<ul class="dropdown-menu">
+					<li><a href="/SiteVitrine">Site vitrine</a></li>
+					<li><a href="/ReseauxSociaux">Réseaux sociaux</a></li>
+					<li><a href="/Communication">Communications</a></li>
+				</ul>
+			</li>
+
+			<li><a href="/#projets-recents" class="nav-link">Projets</a></li>
+			<li><a href="/#contact" class="nav-link">Contact</a></li>
+		</ul>
+	</nav>
+</header>
+
+<script type="module" is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+	const burger = document.querySelector(".burger");
+	const nav = document.querySelector("nav"); 
+	const links = document.querySelectorAll("nav a");
+	const body = document.body;
+
+	// Ouverture/fermeture du menu burger
+	burger?.addEventListener("click", () => {
+		nav.classList.toggle("active");  
+		burger.classList.toggle("open");  
+		body.classList.toggle("no-scroll"); 
+	});
+
+	// Fermeture quand on clique sur un lien
+	links.forEach(link => {
+		link.addEventListener("click", () => {
+			nav.classList.remove("active");
+			burger.classList.remove("open");
+			body.classList.remove("no-scroll");
+		});
+	});
+
+	// Gestion du dropdown
+	const dropdownToggle = document.querySelector(".dropdown-toggle");
+	const dropdown = document.querySelector(".dropdown");
+
+	dropdownToggle?.addEventListener("click", (e) => {
+		e.preventDefault();
+		dropdown.classList.toggle("open");
+	});
+});
+</script>

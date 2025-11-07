@@ -1,0 +1,57 @@
+---
+import Logo from '../assets/images/marie-dev-developpeuse-web-site-vitre-seine-et-marne.webp';
+import Insta from '../assets/icons/instagram.png';
+import '../styles/Footer.css';
+import { Image } from 'astro:assets';
+---
+
+<footer class="footer">
+    <div class="footer-top">
+        <!-- Logo -->
+        <div class='footer-top-left'>
+            <div class="footer-logo">
+                <Image src={Logo} alt="logo-md-web-developpement-site-vitrine" loading='lazy' />
+            </div>
+            <!-- Réseaux sociaux -->
+            <div class="footer-socials">
+                <a href="https://www.instagram.com" target="_blank" class="social-link">
+                    <img src={Insta.src} alt="Instagram" loading='lazy'>
+                    <span>Suivez-moi</span>
+                </a>
+            </div>
+        </div>
+
+        <div class='footer-top-right'>
+            <!-- Menu -->
+            <div class="footer-menu">
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="/#apropos">A propos</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#projets-recents">Projets</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Ligne de séparation -->
+            <hr class="footer-separator">
+        
+            <!-- Slogan -->
+            <div class="footer-slogan">
+                <p>Votre projet web, Créez avec soin, Codez avec passion</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ligne de séparation -->
+    <hr class="footer-separator">
+
+    <!-- Bas du footer -->
+    <div class="footer-bottom">
+        <div class="footer-links">
+            <a href="/MentionsLegales">Mentions légales</a>
+            <a href="/Politique">Politique de confidentialité</a>
+        </div>
+        <p class="footer-copy">© MinnaDev Tout droit réservé</p>
+    </div>
+</footer>

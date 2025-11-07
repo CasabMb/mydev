@@ -1,0 +1,31 @@
+---
+import '../styles/Global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Apropos from '../components/Apropos.astro';
+import Services from '../components/Services.astro';
+import Contact from '../components/Contact.astro';
+import ProjetsRecents from '../components/ProjetsRecents.astro';
+import Engagements from '../components/Engagements.astro';
+import Etapes from '../components/Etapes.astro';
+import Avis from '../components/Avis.astro';
+
+export const prerender = true;
+const title = "Page d’accueil | Minma Dev";
+const description="Développeuse web freelance en Seine-et-Marne, je crée des sites vitrines modernes et adaptés à vos besoins pour valoriser votre activité en ligne."
+---
+
+<Layout {title} {description}>
+	<Header />
+	<Hero />
+	<Services />
+	<Apropos />
+	<ProjetsRecents />
+	<Engagements />
+	<Contact />
+	<Etapes />
+	<Avis />
+	<Footer />
+</Layout>

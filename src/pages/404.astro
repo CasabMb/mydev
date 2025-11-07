@@ -1,0 +1,24 @@
+---
+import '../styles/404.css';
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+const title = "Page 404 | Minma Dev";
+---
+
+
+
+<Layout {title}>  
+    <div class="container">
+        <h1>404</h1>
+        <h2>Oups ! Cette page est introuvable.</h2>
+        <p>
+        La page que vous cherchez n’existe pas ou a peut-être été déplacée.  
+        Pas de panique, vous pouvez revenir à l’accueil ou explorer mes projets !
+        </p>
+        <div class="buttons">
+            <a href="/" class="btn">Retour à l’accueil</a>
+            <a href="/#projets-recents" class="btn secondary">Voir mes projets</a>
+        </div>
+    </div>
+</Layout>

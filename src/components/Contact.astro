@@ -1,0 +1,145 @@
+---
+import '../styles/Contact.css';
+import tel from '../assets/icons/telephone.png';
+import mail from '../assets/icons/e-mail.png';
+import insta from '../assets/icons/instagram.png';
+import { Image } from 'astro:assets';
+---
+
+
+
+<section class="contact" id="contact">
+  <div class="rotate">
+    <div class="contact-wrapper">
+      <!-- Groupe texte + infos -->
+      <h2 class="hidden-top">Me contacter</h2>
+      <div class="disposition">
+        <div class="contact-content">
+          <p>
+            Vous cherchez à développer votre visibilité en ligne grâce à un site vitrine professionnel et sur mesure ? 
+            Je serai ravie d’échanger avec vous. Ensemble, nous trouverons la meilleure solution digitale pour mettre en valeur votre activité.  
+            Vous pouvez me joindre par téléphone, par mail, ou directement via ce formulaire. Je reviendrai vers vous rapidement.
+          </p>
+        </div>
+
+        <!-- Box : infos -->
+        <div class="contact-box">
+          <ul class="contact-list">
+            <li>
+              <Image src={tel} alt="icone telephone" class="icon" />
+              <a href="tel:0712345678">07 12 34 56 78</a>
+            </li>
+            <li>
+              <Image src={mail} alt="icone mail" class="icon" />
+              <a href="mailto:contact@mariedev.com">contact@mariedev.com</a>
+            </li>
+            <li>
+              <Image src={insta} alt="icone instagram" class="icon" />
+              <a href="https://instagram.com/marie.dev" target="_blank">Instagram • marie.dev</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Formulaire en dessous -->
+      <div class="contact-box form-wrapper">
+        <form action="https://formspree.io/f/xkgvenwp" method="POST" class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom" class='nom'>Nom</label>
+              <input type="text" id="nom" name="nom" required />
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" />
+            </div>
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit" aria-label="Soumettre le formulaire de contact">Envoyer</button>
+        </form>
+        <p id="form-message" style="display:none; font-weight:bold;">
+          ✅ Merci, votre message a bien été envoyé !
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const msg = document.getElementById('form-message');
+
+  // ✅ Vérification ajoutée ici (corrige l’erreur "form est peut-être null")
+  if (!form || !msg) return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  // ✅ Vérification supplémentaire pour éviter les erreurs similaires
+  if (!submitBtn) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi...';
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xkgvenwp', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' } // permet d'obtenir JSON en retour
+      });
+
+      // essaie de parser la réponse JSON pour afficher des erreurs précises
+      let json = null;
+      try { json = await response.json(); } catch (_) { json = null; }
+
+      console.log('Formspree status:', response.status, json);
+
+      if (response.ok) {
+        msg.textContent = "✅ Merci, votre message a bien été envoyé !";
+        msg.style.display = "block";
+        msg.style.color = "#E6DDD4";
+        form.reset();
+      } else {
+        // message d'erreur précis si disponible
+        const err = (json && (json.error || (json.errors && json.errors.map(e => e.message).join(', ')))) || 'Erreur lors de l\'envoi';
+        showMessage('❌ ' + err, false);
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
+      showMessage('⚠️ Impossible d’envoyer. Vérifiez votre connexion ou la console.', false);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Envoyer';
+    }
+  });
+
+  function showMessage(text, success) {
+    msg.textContent = text;
+    msg.style.display = 'block';
+    msg.style.color = success ? 'green' : 'red';
+    // disparition automatique après 6s
+    setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  }
+});
+</script>

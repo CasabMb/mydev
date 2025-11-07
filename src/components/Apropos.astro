@@ -1,0 +1,43 @@
+---
+import '../styles/Apropos.css';
+import { Image } from 'astro:assets';
+import photo from'../assets/images/developpeuse-web-site-vitrine-apropos.webp';
+---
+
+
+<section class="apropos" id="apropos">
+    <div class="apropos-inner">
+        <div class="apropos-text">
+            <div class='apropos-img-container hidden-right'>
+                <Image src={photo} alt="présentation"  loading="lazy" class='photo-id'/>
+            </div>
+            <div class='apropos-text-content '>
+                <h2 class="hidden-top">À propos</h2>
+                <p class='hidden-left'>Je m’appelle Marie, développeuse web passionnée. Basée en Seine-et-Marne, j’aide les indépendants, créateurs et petites entreprises à transformer leurs idées en sites vitrines uniques et performants. Mon objectif ? Créer des solutions digitales qui reflètent votre identité, captivent vos visiteurs et vous aident à développer votre activité en ligne.</p>
+            </div>
+        </div>
+        <div class='hidden-right'>
+            <a href="/PageApropos" class="apropos-cta">En savoir plus</a>
+        </div>
+        <div class="missions">
+            <div class="card">
+                <div class="deco">
+                    <p>*</p>
+                </div>
+                <p>Je crée des sites rapides, fluides et optimisés pour garantir à vos visiteurs une navigation agréable et efficace, afin de maximiser leur engagement et vos résultats.</p>
+            </div>
+            <div class="card">
+                <div class="deco">
+                    <p>*</p>
+                </div>
+                <p>Chaque site est conçu sur mesure pour refléter l’identité unique de votre activité, renforcer votre image professionnelle et inspirer confiance à vos clients.</p>
+            </div>
+            <div class="card">
+                <div class="deco">
+                    <p>*</p>
+                </div>
+                <p>Je propose des solutions flexibles selon vos besoins : un site facile à gérer en toute autonomie via WordPress, ou un accompagnement complet pour un site sur mesure, pensé et développé spécialement pour vous. </p>
+            </div>
+        </div>
+    </div>
+</section>

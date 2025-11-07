@@ -1,0 +1,109 @@
+---
+import Loader from "../components/Loader.astro";
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preload" href="/fonts/Poppins-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/Bestigia.ttf" as="font" type="font/ttf" crossorigin>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Marie Casabianca" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/Minma-Dev-Developpeuse-web-site-vitrine-Seine-Et-Marne.webp" /> 
+    <meta property="og:url" content="https://www.reikizena.fr" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/Minma-Dev-Developpeuse-web-site-vitrine-Seine-Et-Marne.webp" />
+  </head>
+
+  <body>
+    <main></main>
+    <Loader />
+    <slot />
+  </body>
+
+  <!-- ✅ Script corrigé -->
+  <script>
+    // === Effet machine à écrire ===
+    const titles = document.querySelectorAll(".sv-h1-img h1, .rs-h1-img h1, .cp-h1-img h1");
+
+    function typeWriter(el: HTMLElement, fullText: string, speed = 80) {
+      let i = 0;
+      el.textContent = "";
+      el.classList.add("typing");
+
+      const tick = () => {
+        if (i < fullText.length) {
+          el.textContent += fullText.charAt(i);
+          i++;
+          setTimeout(tick, speed);
+        } else {
+          el.classList.remove("typing");
+          el.classList.add("done");
+        }
+      };
+      tick();
+    }
+
+
+    // Lancer à l’apparition
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target;
+        if (!(target instanceof HTMLElement)) return;
+
+        if (entry.isIntersecting && !target.dataset.typed) {
+          const text = target.textContent ? target.textContent.trim() : "";
+          target.dataset.typed = "true";
+          typeWriter(target, text);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    titles.forEach((title) => {
+      if (title instanceof HTMLElement) titleObserver.observe(title);
+    });
+
+    // === Animations au scroll ===
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target;
+          if (!(el instanceof HTMLElement)) return;
+
+          if (entry.isIntersecting) {
+            el.classList.add("show");
+
+            if (el.classList.contains("once")) {
+              observer.unobserve(el);
+            }
+          } else if (!el.classList.contains("once")) {
+            el.classList.remove("show");
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const elements = document.querySelectorAll(".hidden-left, .hidden-right, .hidden-top");
+      elements.forEach((el) => {
+        if (el instanceof Element) observer.observe(el);
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,102 @@
+---
+import '../styles/ProjetsRecents.css';
+import ordi1 from '../assets/images/site-vitrine-reikizena-massage.webp';
+import ordi2 from '../assets/images/site-vitre-patisserie-atelier-patisserie-bento-cake.webp';
+import ordi3 from '../assets/images/site-vitrine-fleuriste-marles-en-brie.webp';
+import { Image } from 'astro:assets';
+---
+
+<section class="carousel-section" id="projets-recents">
+  <h2 class="hidden-right">Mes réalisations</h2>
+
+  <div class="carousel">
+    <button class="carousel-btn left" id="prev">&#10094;</button>
+
+    <div class="carousel-track">
+      <!-- Slide 1 -->
+      <div class="carousel-slide active">
+        <div class="slide-image">
+          <Image src={ordi1} alt="Mockup ordinateur projet Reiki" class="mockup" />
+        </div>
+        <div class="slide-content">
+          <h3>Reikizena</h3>
+          <p>Site vitrine pour une praticienne de Reiki, mettant en avant sérénité et confiance.</p>
+          <ul>
+            <li>🛠️ Technos : HTML, CSS, JavaScript</li>
+            <li>🎯 Rôle : Conception & développement complet</li>
+            <li>⚡ Défi : Créer une atmosphère apaisante et fluide</li>
+          </ul>
+          <a href="https://reikizena.fr/" target="_blank" class="project-link">Voir le site</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-slide">
+        <div class="slide-image">
+          <Image src={ordi2} alt="Mockup ordinateur projet Bento Cake" class="mockup" />
+        </div>
+        <div class="slide-content">
+          <h3>Bento Cake Atelier</h3>
+          <p>Un site gourmand et moderne pour un atelier spécialisé dans les Bento Cakes.</p>
+          <ul>
+            <li>🛠️ Technos : React, Vite, CSS</li>
+            <li>🎯 Rôle : Développement front-end</li>
+            <li>⚡ Défi : Valoriser les visuels appétissants</li>
+          </ul>
+          <a href="https://casabmb.github.io/bento-cake/" target="_blank" class="project-link">Voir le site</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-slide">
+        <div class="slide-image">
+          <Image src={ordi3} alt="Mockup ordinateur projet Bien-être" class="mockup" />
+        </div>
+        <div class="slide-content">
+          <h3>Site Bien-être</h3>
+          <p>Site vitrine relaxant pour une praticienne bien-être à domicile.</p>
+          <ul>
+            <li>🛠️ Technos : HTML, CSS, JS</li>
+            <li>🎯 Rôle : Conception & développement</li>
+            <li>⚡ Défi : Créer une expérience zen et fluide</li>
+          </ul>
+          <a href="https://casabmb.github.io/Fleuriste/" target="_blank" class="project-link">Voir le site</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-btn right" id="next">&#10095;</button>
+  </div>
+</section>
+
+<script type="module">
+  const slides = document.querySelectorAll('.carousel-slide');
+  const nextButton = document.getElementById('next');
+  const prevButton = document.getElementById('prev');
+  let current = 0;
+
+  function updateSlides() {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active', 'next', 'prev');
+    });
+
+    const prevIndex = (current - 1 + slides.length) % slides.length;
+    const nextIndex = (current + 1) % slides.length;
+
+    slides[current].classList.add('active');
+    slides[nextIndex].classList.add('next');
+    slides[prevIndex].classList.add('prev');
+  }
+
+  nextButton.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    updateSlides();
+  });
+
+  prevButton.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlides();
+  });
+
+  updateSlides();
+</script>

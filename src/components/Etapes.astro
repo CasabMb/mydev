@@ -1,0 +1,84 @@
+---
+import '../styles/Etapes.css';
+---
+
+<section class="work-process" id="travail">
+    <h2 class="hidden-top">Votre projet, étape par étape</h2>
+
+    <div class="steps">
+        <div class="step fade-right hidden">
+            <h4>1.</h4>
+            <h3>Échange & compréhension</h3>
+            <p>On échange ensemble pour comprendre vos besoins, vos valeurs et vos objectifs.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="step fade-left hidden">
+            <h4>2.</h4>
+            <h3>Proposition personnalisée</h3>
+            <p>Je vous propose une solution claire et adaptée à votre projet, votre style et votre budget.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="step fade-right hidden">
+            <h4>3.</h4>
+            <h3>Création & conception</h3>
+            <p>Je conçois une première version du projet, en veillant à ce qu’elle reflète parfaitement votre image.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="step fade-left hidden">
+            <h4>4.</h4>
+            <h3>Affinage & ajustements</h3>
+            <p>Nous validons ensemble le rendu final après vos retours et ajustements.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="step fade-right hidden">
+            <h4>5.</h4>
+            <h3>Livraison & mise en ligne</h3>
+            <p>Je vous livre le projet final prêt à l’emploi ou je le mets en ligne selon vos besoins.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="step fade-left hidden">
+            <h4>6.</h4>
+            <h3>Accompagnement & suivi</h3>
+            <p>Je reste disponible pour vous conseiller, faire évoluer le projet ou assurer son bon fonctionnement.</p>
+        </div>
+
+        <div class="divider"></div>
+
+    </div>
+    <div class="cta">
+        <a href="#contact">Vous avez un projet ? <br> Discutons-en !</a>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const steps = document.querySelectorAll(".step");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+                entry.target.classList.remove("hidden");
+            } else {
+                // Pour rejouer l’animation quand on remonte
+                entry.target.classList.remove("animate");
+                entry.target.classList.add("hidden");
+            }
+            });
+        }, { threshold: 0.3 }); // 30% visible pour déclencher
+
+        steps.forEach((step) => observer.observe(step));
+    });
+
+</script>

@@ -1,0 +1,71 @@
+---
+import '../styles/ProjetsRecents.css';
+import '../styles/Projets.css';
+import vitrine1 from '../assets/images/site-vitre-patisserie-atelier-patisserie-bento-cake.webp'
+import vitrine2 from '../assets/images/site-vitrine-reikizena-massage.webp'
+import vitrine3 from '../assets/images/site-vitrine-fleuriste-marles-en-brie.webp'
+import IconArrow from '../assets/icons/arrow-right.svg';
+import { Image } from 'astro:assets';
+---
+
+
+<section class="projets-recents projets-intro" >
+    <div class="projets-container">
+        <h1>Mes projets web</h1>
+        <p> 
+            Parcourez l’ensemble de mes réalisations en tant que développeuse web freelance.  
+            Chaque projet reflète mon expertise en création de sites vitrines modernes et performants, réalisés en HTML/CSS, Astro ou WordPress, selon les besoins spécifiques de mes clients.  
+            Mon objectif : proposer des solutions digitales adaptées qui allient design, performance et visibilité en ligne.
+        </p>
+        <div class="projets">
+            <div class="projet auto-show">
+                <div class="projet-img">
+                    <Image src={vitrine1} alt="Site vitrine de pâtisserie" loading="eager"/>
+                </div>
+                <div class="projet-text">
+                    <h3>Projet 1</h3>
+                    <p>
+                        Site vitrine réalisé pour un atelier de pâtisserie spécialisé dans les bento cakes.
+                    </p>
+                </div>
+                <div class="arrow">
+                    <a href="https://casabmb.github.io/bento-cake/" target="_blank">
+                        <Image src={IconArrow} alt="icone flêche vers le haut redirection site vitrine bento cake" loading="eager"/>
+                    </a href="/Projets">
+                </div>
+            </div>
+            <div class="projet auto-show">
+                <div class="projet-img">
+                    <Image src={vitrine2} alt="Site vitrine de café" loading="eager">
+                </div>
+                <div class="projet-text">
+                        <h3> Projet 2</h3>
+                        <p>
+                            Site vitrine créé pour une praticienne en soins énergétiques et massages bien-être.
+                        </p>
+                </div>
+                <div class="arrow">
+                    <a href="https://reikizena.fr/" target="_blank">
+                        <Image src={IconArrow} alt="icone flêche vers le haut redirection site vitrine café" loading="eager">
+                    </a>
+                </div>
+            </div>
+            <div class="projet auto-show">
+                <div class="projet-img">
+                    <Image src={vitrine3} alt="Site vitrine de fleuriste" loading="eager">
+                </div>
+                <div class="projet-text">
+                    <h3>Projet 3</h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, velit.
+                    </p>
+                </div>
+                <div class="arrow">
+                    <a href="https://casabmb.github.io/Fleuriste/" target="_blank">
+                        <Image src={IconArrow} alt="icone flêche vers le haut redirection site vitrine fleuriste" loading="eager">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

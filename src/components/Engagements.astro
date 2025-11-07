@@ -1,0 +1,166 @@
+---
+import '../styles/Engagements.css';
+import leaf from '../assets/icons/eco.png';
+import lightning from '../assets/icons/performance.png';
+import magnifying from '../assets/icons/seo.png';
+import wheelchair from '../assets/icons/accessibilite.png';
+import { Image } from 'astro:assets';
+---
+
+<section class="vision">
+  <div class="vision-container">
+    <!-- Colonne gauche -->
+    <div class="vision-left">
+      <div class="vision-title-wrapper">
+        <div class="vision-vertical-line" aria-hidden="true"></div>
+        <h2 class="vision-title">Let's bring your vision to life</h2>
+      </div>
+    </div>
+
+    <!-- Colonne droite -->
+    <div class="vision-right">
+      <hr class="vision-line" />
+      <p class="vision-text">
+        Je serai heureuse de vous aider à créer un site harmonieux qui correspond à vos besoins et à votre style.
+      </p>
+      <hr class="vision-line" />
+    </div>
+  </div>
+</section>
+
+<section class="engagements" id="engagements">
+  <h2 class="hidden-top">Mes engagements</h2>
+
+  <div class="engagements-container">
+    <!-- Carte 1 -->
+    <div class="engagement-card">
+      <div class="engagement-inner">
+        <div class="engagement-front">
+          <Image src={lightning} alt="icone performance" loading="lazy" class="engagement-icon" />
+          <p>Performance</p>
+          <button class="engagement-flip-btn" aria-label="Voir plus">↻</button>
+        </div>
+        <div class="engagement-back">
+          <p>Pour des sites rapides et optimisés pour offrir une expérience fluide à vos visiteurs.</p>
+          <button class="engagement-flip-btn" aria-label="Retour">↻</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 2 -->
+    <div class="engagement-card">
+      <div class="engagement-inner">
+        <div class="engagement-front">
+          <Image src={leaf} alt="icone eco" loading="lazy" class="engagement-icon" />
+          <p>Éco-conception</p>
+          <button class="engagement-flip-btn" aria-label="Voir plus">↻</button>
+        </div>
+        <div class="engagement-back">
+          <p>Pour des pratiques responsables et pour limiter l’impact environnemental du web.</p>
+          <button class="engagement-flip-btn" aria-label="Retour">↻</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 3 -->
+    <div class="engagement-card">
+      <div class="engagement-inner">
+        <div class="engagement-front">
+          <Image src={magnifying} alt="icone seo" loading="lazy" class="engagement-icon" />
+          <p>SEO naturel</p>
+          <button class="engagement-flip-btn" aria-label="Voir plus">↻</button>
+        </div>
+        <div class="engagement-back">
+          <p>L'optimisation pour un meilleur référencement et l'amélioration de votre visibilité sur Google.</p>
+          <button class="engagement-flip-btn" aria-label="Retour">↻</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 4 -->
+    <div class="engagement-card">
+      <div class="engagement-inner">
+        <div class="engagement-front">
+          <Image src={wheelchair} alt="icone accessibilité" loading="lazy" class="engagement-icon" />
+          <p>Accessibilité</p>
+          <button class="engagement-flip-btn" aria-label="Voir plus">↻</button>
+        </div>
+        <div class="engagement-back">
+          <p>Des sites accessibles à tous, y compris aux personnes en situation de handicap.</p>
+          <button class="engagement-flip-btn" aria-label="Retour">↻</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Script corrigé -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    /* ===== Flip-cards ===== */
+    document.querySelectorAll('.engagement-card').forEach((card) => {
+      const inner = card.querySelector('.engagement-inner');
+      if (!(inner instanceof HTMLElement)) return;
+
+      const buttons = card.querySelectorAll('.engagement-flip-btn');
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          inner.classList.toggle('flipped');
+        });
+      });
+
+      card.addEventListener('click', () => {
+        inner.classList.toggle('flipped');
+      });
+    });
+
+    /* ===== Scroll direction tracker ===== */
+    let lastY = window.scrollY;
+    let scrollDirection = 'down';
+    window.addEventListener(
+      'scroll',
+      () => {
+        const y = window.scrollY;
+        scrollDirection = y > lastY ? 'down' : 'up';
+        lastY = y;
+      },
+      { passive: true }
+    );
+
+    /* ===== Intersection Observer pour lines ===== */
+    const ioOptions = { threshold: 0.3 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const el = entry.target;
+        if (!(el instanceof HTMLElement)) return;
+
+        if (entry.isIntersecting) {
+          if (el.classList.contains('vision-vertical-line')) {
+            // appliquer la bonne classe selon la direction
+            if (scrollDirection === 'down') {
+              el.classList.remove('animate-down');
+              void el.offsetWidth; // reflow
+              el.classList.add('animate-up');
+            } else {
+              el.classList.remove('animate-up');
+              void el.offsetWidth; // reflow
+              el.classList.add('animate-down');
+            }
+          } else if (el.classList.contains('vision-line')) {
+            el.classList.remove('animate');
+            void el.offsetWidth;
+            el.classList.add('animate');
+          }
+        } else {
+          el.classList.remove('animate', 'animate-up', 'animate-down');
+        }
+      });
+    }, ioOptions);
+
+    document.querySelectorAll('.vision-vertical-line, .vision-line').forEach((el) => {
+      if (el instanceof Element) observer.observe(el);
+    });
+  });
+</script>

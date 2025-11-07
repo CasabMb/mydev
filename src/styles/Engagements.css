@@ -1,0 +1,248 @@
+/* --------------------
+    SECTION VISION
+   -------------------- */
+.vision {
+  padding: 2rem 4rem;
+}
+
+.vision-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+/* Colonne gauche */
+.vision-left {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.vision-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.vision-title {
+  font-size: clamp(3rem, 5vw, 4rem);
+  color: var(--accent);
+  font-family: 'script';
+  line-height: 1.5;
+  max-width: 420px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* --- LIGNE VERTICALE ANIMEE --- */
+.vision-vertical-line {
+  width: 2px;
+  background-color: var(--Principal-text-color);
+
+  height: 150%;
+
+  position: absolute;
+  top: 80%;
+  left: 5%;
+
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  opacity: 0;
+  transition: transform 2s cubic-bezier(.22,.9,.3,1), opacity 300ms;
+}
+
+/* quand on descend --> on pousse la ligne du bas vers le haut */
+.vision-vertical-line.animate-up {
+  transform-origin: bottom center;
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/* quand on remonte --> on pousse la ligne du haut vers le bas */
+.vision-vertical-line.animate-down {
+  transform-origin: top center;
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/* --- LIGNE HORIZONTALE ANIMEE (hr) --- */
+.vision-line {
+  border: none;
+  border-top: 2px solid var(--Principal-text-color);
+  margin: 0.8rem 0;
+
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: transform 2.5s cubic-bezier(.2,.9,.2,1), opacity 250ms;
+}
+
+/* class ajoutée par JS */
+.vision-line.animate {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Texte */
+.vision-text {
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 3rem auto;
+  max-width: 400px;
+}
+
+/* Responsive */
+@media (max-width: 1140px) {
+  .vision-title-wrapper {
+    justify-content: center;
+  }
+
+  .vision-text {
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+  }
+  .vision-vertical-line {
+    height: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .vision-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .vision-title {
+    font-size: 2rem;
+    max-width: 90%;
+  }
+  .vision-vertical-line {
+    display: none;
+  }
+}
+
+/* --------------------
+    SECTION ENGAGEMENTS
+   -------------------- */
+.engagements {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.engagements h2 {
+  margin-bottom: 3rem;
+}
+
+.engagements-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* ===== Flip card cercle ===== */
+.engagement-card {
+  width: 180px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+.engagement-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.engagement-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.engagement-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.engagement-front,
+.engagement-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-brown-80);
+  color: var(--Secondary-text-color);
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Face avant */
+.engagement-front p {
+  font-size: 1.5rem;
+  font-family: Bestigia;
+  color: var(--Secondary-text-color);
+}
+
+.engagement-back {
+  transform: rotateY(180deg);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 25px;
+}
+
+.engagement-back p {
+  font-size: small;
+  max-width: 90%;
+  margin: 0 auto;
+  color: var(--Secondary-text-color);
+}
+
+.engagement-flip-btn {
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--Principal-color);
+  color: var(--Secondary-text-color);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s ease;
+  position: absolute;
+  bottom: 13px;
+}
+
+.engagement-flip-btn:hover {
+  background: var(--accent);
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .engagement-card:hover .engagement-inner {
+    transform: rotateY(180deg);
+  }
+  .engagement-flip-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .engagement-card {
+    width: 200px;
+    height: 200px;
+  }
+  .engagement-back {
+    font-size: 0.8rem;
+  }
+}

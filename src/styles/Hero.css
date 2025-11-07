@@ -1,0 +1,196 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url(../assets/images/hero-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  transform-origin: center center;
+  will-change: transform;
+  z-index: 0;
+}
+/* Contenu centré effet glass */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(3px);
+  border-radius: var(--radius-m, 16px);
+  padding: 3rem;
+  max-width: 900px;
+  text-align: center;
+  color: var(--Secondary-text-color);
+  animation: fadeIn 1s ease forwards;
+  overflow: hidden; 
+  margin-top: -4rem;
+}
+
+/* --- Bordure animée façon étoile filante --- */
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px; /* épaisseur de la bordure */
+  background: linear-gradient(
+    120deg,
+    #ff8ad8,
+    #7EC5EF,
+    #f9bf73,
+    #468c3d,
+    #D79FBC,
+    #ffb347,
+    #C8E3FD,
+    #ff8ad8,
+    #7EC5EF,
+    #f9bf73,
+    #468c3d,
+    #D79FBC,
+    #ffb347,
+    #C8E3FD
+  );
+  background-size: 400% 400%;
+  animation: borderFlow 8s linear infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+/* --- Animation de défilement du dégradé --- */
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Titre + paragraphe */
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  color: var(--Secondary-text-color);
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  color: var(--Secondary-text-color);
+  margin-bottom: 2rem;
+}
+
+/* Bouton CTA */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--accent);
+  color: var(--Secondary-text-color);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-btn:hover {
+  background-color: var(--Secondary-text-color);
+  color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+}
+
+/* ------------------- */
+/* TEXTE CIRCULAIRE   */
+/* ------------------- */
+.circular-text-container {
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+  width: clamp(60px, 8vw, 100px);
+  height: clamp(60px, 8vw, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 12;
+  opacity: 0.9;
+}
+
+.circular-text {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: spin 18s linear infinite;
+  transform-origin: center;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.circular-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 0;
+  font-size: clamp(0.5rem, 0.8vw, 0.7rem);
+  color: var(--Secondary-text-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ------------------- */
+/* ANIMATIONS          */
+/* ------------------- */
+[data-animate="fade-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ------------------- */
+/* RESPONSIVE          */
+/* ------------------- */
+@media (max-width: 768px) {
+  .hero-content {
+    width: 90%;
+    padding: 2rem;
+  }
+  .circular-text-container {
+    display: none;
+  }
+}

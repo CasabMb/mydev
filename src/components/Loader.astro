@@ -1,0 +1,141 @@
+---
+/* Pas de code serveur */
+---
+
+<script is:inline>
+  try {
+    if (sessionStorage.getItem('loaderShown')) {
+      document.documentElement.setAttribute('data-loader-shown', 'true');
+      window.__LOADER_SHOWN = true;
+    }
+  } catch (e) {}
+</script>
+
+<style>
+  :root[data-loader-shown="true"] #loader {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  #loader {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: radial-gradient(circle at center, var(--Principal-color), #000);
+    z-index: 9999;
+    overflow: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  #loader.fade {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .loader-text {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: flex;
+    gap: 0.2em;
+    color: transparent;
+    background: linear-gradient(90deg, rgba(221, 113, 144, 0.85), var(--Secondary-text-color), rgba(221, 113, 144, 0.85));
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: text-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes text-glow {
+    from { filter: drop-shadow(0 0 8px white); }
+    to   { filter: drop-shadow(0 0 18px var(--Secondary-text-color)); }
+  }
+
+  :global(.loader-subtext) {
+    margin-top: 1rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1s ease, transform 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  :global(.loader-subtext.visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(.dots span) {
+    opacity: 0;
+    animation: blink 1.5s infinite;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  :global(.dots span:nth-child(1)) { animation-delay: 0.3s; }
+  :global(.dots span:nth-child(2)) { animation-delay: 0.6s; }
+  :global(.dots span:nth-child(3)) { animation-delay: 0.9s; }
+
+  @keyframes blink {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+  }
+
+  @media (max-width: 480px) {
+    .loader-text { font-size: 1.8rem; text-align: center; }
+    :global(.loader-subtext) { font-size: 0.9rem; }
+  }
+</style>
+
+<div id="loader" role="status" aria-label="Chargement du site">
+  <p class="loader-text">MINMA DEV</p>
+</div>
+
+<script is:inline>
+  function fixVH() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  }
+  fixVH();
+  window.addEventListener('resize', fixVH);
+  window.addEventListener('orientationchange', fixVH);
+
+  (function () {
+    if (window.__LOADER_SHOWN || sessionStorage.getItem('loaderShown')) {
+      const loader = document.getElementById('loader');
+      if (loader) loader.remove();
+      document.documentElement.setAttribute('data-loader-shown', 'true');
+      window.__LOADER_SHOWN = true;
+      return;
+    }
+
+    window.__LOADER_SHOWN = true;
+
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (!(loader instanceof HTMLElement)) return;
+
+      const subtext = document.createElement('p');
+      subtext.className = 'loader-subtext';
+      subtext.innerHTML = 'Chargement en cours<span class="dots"><span>.</span><span>.</span><span>.</span></span>';
+      loader.appendChild(subtext);
+
+      setTimeout(() => subtext.classList.add('visible'), 700);
+
+      setTimeout(() => loader.classList.add('fade'), 3200);
+      setTimeout(() => {
+        sessionStorage.setItem('loaderShown', 'true');
+        loader.remove();
+      }, 3800);
+    });
+  })();
+</script>

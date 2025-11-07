@@ -1,0 +1,145 @@
+/* --- SECTION À PROPOS --- */
+.apropos {
+  padding: 10vh 5% 5vh;
+  overflow-x: hidden;
+}
+
+/* --- CONTENEUR IMAGE + TEXTE --- */
+.apropos-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem; 
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  margin: 0 auto 4rem auto; 
+}
+
+/* --- IMAGE --- */
+.apropos-img-container {
+  flex: 1;               
+  max-width: 500px;     
+}
+
+.apropos img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* --- TEXTE --- */
+.apropos-text-content {
+  flex: 1; 
+  text-align: left;
+}
+
+.apropos-text-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+.apropos-text-content p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--Principal-text-color);
+  width: 100%;
+}
+
+.apropos-cta {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--Principal-color);
+  color: var(--Secondary-text-color);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.apropos-cta:hover {
+  background-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* --- SECTION OBJECTIFS --- (inchangée) --- */
+.missions {
+  min-height: 50vh;
+  display: flex;
+  gap: 2rem;
+  padding: 5vh 0 ;
+  width: 100%;
+}
+
+.missions .card {
+  background-color: var(--Principal-bg-color);
+  background-image: none;
+  max-height: 400px;
+    padding: 5vh 2vh  5vh 2vh ;
+}
+
+.missions p:nth-child(1) {
+  color: var(--Third-text-color);
+  font-size: xx-large;
+  margin-top: auto;
+}
+
+.missions p:nth-child(2) {
+  color: var(--Secondary-text-color);
+  margin: auto;
+}
+
+.deco {
+  background: var(--Page-color);
+  width: 60%;
+  height: 60px;
+  clip-path: circle();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .apropos-text {
+    flex-direction: column;  
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .apropos-img-container {
+    max-width: 400px;
+  }
+
+  .apropos-text-content h2 {
+    text-align: center;
+  }
+
+
+  .missions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .apropos h2 {
+    text-align: center;
+  }
+
+  .missions {
+    min-height: 60vh;
+    padding: 8vh 5%;
+  }
+}
+
+@media (max-width: 540px) {
+  .missions {
+    min-height: 65vh;
+  }
+}
