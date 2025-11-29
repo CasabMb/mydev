@@ -1,0 +1,50 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/Global.css';
+import '../styles/PagesDetails.css';
+
+export const prerender = true;
+
+const title = "Création de site vitrine Professionnel | Lumi Digital Studio";
+const description = "Pack Site Vitrine Professionnel : un site premium, performant et évolutif, avec maintenance technique optionnelle.";
+---
+
+<Layout {title} {description}>
+    <Header />
+
+        <section class="Details">
+            <h2>Pack Site Vitrine Professionnel</h2>
+            <span>À partir de 1200€</span>
+    
+            <h3>Description</h3>
+            <p>
+                Le Pack Professionnel est une solution haut de gamme pensée pour offrir à votre entreprise un site performant, moderne et durable.
+                Il est conçu sur une technologie optimisée, qui garantit rapidité, stabilité et excellence visuelle.
+                Comme pour tout site à code personnalisé, les modifications et évolutions nécessitent l’intervention d’un développeur afin d’assurer la continuité de la qualité technique.
+    
+                Une offre de maintenance peut être proposée en fonction de vos besoins (mises à jour, ajout de contenus, nouvelles sections, optimisation continue…).
+            </p>
+    
+            <h3>Ce qui est inclus</h3>
+            <ul>
+                <li>4 à 10 pages</li>
+                <li>Design premium et sur mesure</li>
+                <li>SEO avancé</li>
+                <li>Optimisation de la vitesse</li>
+                <li>Formulaire sécurisé</li>
+                <li>Modules personnalisés si nécessaires</li>
+                <li>Version responsive (mobile & tablette)</li>
+                <li>Sécurisation avancée</li>
+                <li>Maintenance en option</li>
+            </ul>
+    
+            <h3>Idéal pour</h3>
+            <p>
+                Les professionnels qui souhaitent un site vitrine élégant, performant et évolutif, sans avoir à gérer la partie technique ou les mises à jour eux-mêmes.
+            </p>
+        </section>
+
+    <Footer />
+</Layout>

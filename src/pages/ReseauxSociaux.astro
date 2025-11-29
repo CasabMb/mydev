@@ -3,64 +3,78 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 import '../styles/Global.css';
-// import '../styles/ReseauxSociaux.css';
 
 export const prerender = true;
-const title = "Gestion et création de contenu réseaux sociaux | Minma Dev Seine-et-Marne";
+const title = "Gestion et création de contenu réseaux sociaux | Lumi Digital Studio Seine-et-Marne";
 const description="Développeuse web freelance en Seine-et-Marne, je vous accompagne dans la création de contenu et la gestion de vos réseaux sociaux pour booster votre visibilité et engager votre communauté.";
 ---
 
 <Layout {title} {description}>
     <Header />
     <section class=" section reseaux">
-        <div class="rs-h1-img h1-img ">
-            <h1>Création de contenu pour vos réseaux sociaux</h1>
+        <div class="section-inner">
+            <div class="rs-h1-img h1-img ">
+                <h1>Création de contenu pour vos réseaux sociaux</h1>
+            </div>
+            <div class='divh2'>
+                <h2>Réseaux sociaux</h2>
+            </div>
+            <div class='section-text'>
+                <p>
+                Aujourd’hui, <span>les réseaux sociaux</span> sont indispensables pour développer votre activité et attirer de nouveaux clients. 
+                En tant que <span>développeuse web freelance en Seine-et-Marne</span>, je vous accompagne dans la <span>création de contenu visuel et rédactionnel</span> adapté à vos plateformes (Instagram, Facebook, LinkedIn, Pinterest…).
+                </p>
+        
+                <h3 class="hidden-right once">Pourquoi investir dans vos réseaux sociaux ?</h3>
+                <ul>
+                    <li>Augmenter votre visibilité et votre notoriété en ligne</li>
+                    <li>Créer une communauté engagée autour de vos produits ou services</li>
+                    <li>Mettre en valeur votre expertise et vos valeurs</li>
+                    <li>Attirer de nouveaux prospects grâce à une communication professionnelle</li>
+                    <li>Gagner du temps en déléguant la création de contenu</li>
+                </ul>
+            </div>
         </div>
-        <div class='divh2'>
-            <h2>Réseaux sociaux</h2>
+
+        <div class="container-bg">
+            <div class="offers">
+                <a class="offer-link" href="/DetailPackCreationContenu">
+                    <div class="offer">
+                        <h3>Pack Crestion de contenu </h3>
+                        <p>Création de contenus parfaitement alignés à votre image de marque.
+                            Visuels conçus pour sublimer votre présence en ligne et maintenir une communication régulière et professionnelle.</p>
+                        <h4>Dès 250€/mois</h4>
+                    </div>
+                </a>
+                <a class="offer-link" href="/DetailPackRefonteInstagram">
+                    <div class="offer">
+                        <h3>Pack Refonte Instagram</h3>
+                        <p>Modernisation complète de votre univers Instagram : identité visuelle, harmonie du feed et optimisation de votre profil.
+                            Un rendu soigné pour un compte professionnel, cohérent et visuellement attractif.</p>
+                        <h4>Dès 450€</h4>
+                    </div>
+                </a>
+                <a class="offer-link" href="/DetailPackSocialSurMesure">
+                    <div class="offer">
+                        <h3>Pack Sur Mesure</h3>
+                        <p>Accompagnement premium adapté à vos objectifs : stratégie digitale, création de contenus variés, stories, vidéos courtes…
+                        Une gestion complète et personnalisée de votre communication en ligne.</p>
+                        <h4>À partir de 600€/mois</h4>
+                    </div>
+                </a>
+            </div>
         </div>
-        <div class='section-text'>
+
+        <div class="section-inner">
+            <p><span>*Option shooting photo professionnel.</span> Besoin de visuels de haute qualité ? Je collabore avec un photographe partenaire pour vous proposer une <span>séance photo personnalisée</span> adaptée à votre marque.</p>
             <p>
-            Aujourd’hui, <span>les réseaux sociaux</span> sont indispensables pour développer votre activité et attirer de nouveaux clients. 
-            En tant que <span>développeuse web freelance en Seine-et-Marne</span>, je vous accompagne dans la <span>création de contenu visuel et rédactionnel</span> adapté à vos plateformes (Instagram, Facebook, LinkedIn, Pinterest…).
+            Chaque prestation est pensée pour <span>renforcer votre image de marque</span> et s’intégrer à votre stratégie digitale. 
+            Vous bénéficiez de contenus <span>modernes, optimisés et adaptés à votre cible</span>.
             </p>
     
-            <h3 class="hidden-right once">Pourquoi investir dans vos réseaux sociaux ?</h3>
-            <ul>
-                <li>Augmenter votre visibilité et votre notoriété en ligne</li>
-                <li>Créer une communauté engagée autour de vos produits ou services</li>
-                <li>Mettre en valeur votre expertise et vos valeurs</li>
-                <li>Attirer de nouveaux prospects grâce à une communication professionnelle</li>
-                <li>Gagner du temps en déléguant la création de contenu</li>
-            </ul>
-        </div>
-
-        <div class="offers">
-            <div class="offer">
-                <h3>Pack Crestion de contenu </h3>
-                <p>Création de visuels, carrousels et vidéos, pensés pour valoriser votre image de marque et engager votre communauté.  
-                Le client fournit les photos et vidéos nécessaires à la conception des visuels.</p>
-                <h4>Dès 250€/mois</h4>
+            <div class="cta hidden-top">
+                <a href="/#contact">Demander un devis personnalisé</a>
             </div>
-            <div class="offer">
-                <h3>Pack Refonte Instagram</h3>
-                <p>Modernisation complète de votre compte : nouvelle identité visuelle, feed harmonisé et profil optimisé pour un rendu professionnel.</p>
-                <h4>Dès 450€</h4>
-            </div>
-            <div class="offer">
-                <h3>Pack Sur Mesure</h3>
-                <p>Accompagnement adapté à vos besoins : stratégie digitale, ligne éditoriale, stories, reels, vidéos courtes, etc.</p>
-                <h4>À partir de 600€/mois</h4>
-            </div>
-        </div>
-        <p><span>*Option shooting photo professionnel.</span> Besoin de visuels de haute qualité ? Je collabore avec un photographe partenaire pour vous proposer une <span>séance photo personnalisée</span> adaptée à votre marque.</p>
-        <p>
-        Chaque prestation est pensée pour <span>renforcer votre image de marque</span> et s’intégrer à votre stratégie digitale. 
-        Vous bénéficiez de contenus <span>modernes, optimisés et adaptés à votre cible</span>.
-        </p>
-
-        <div class="cta hidden-top">
-            <a href="/#contact">Demander un devis personnalisé</a>
         </div>
     </section>
     <Footer />

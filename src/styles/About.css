@@ -35,7 +35,7 @@
 .about-overlay {
   position: absolute;
   inset: 0;
-  background: url('../assets/images/hello-marie-web-dev-paris3.jpg') center 70% / cover no-repeat;
+  background: url('../assets/images/hello-lumi-digital-studio-paris3.jpg') center 70% / cover no-repeat;
   filter: blur(8px) brightness(0.6);
   opacity: 0.6;
   z-index: 0;

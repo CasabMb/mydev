@@ -1,0 +1,120 @@
+
+/* Container principal */
+.Details {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    background: var(--sand); 
+    color: var(--Principal-text-color);
+    border-radius: var(--radius-m);
+}
+
+.Details::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    /* 2 calques : horizontales + verticales */
+    background-image:
+        linear-gradient(to bottom, rgba(21, 21, 21, 0.06) 1px, transparent 1px),
+        linear-gradient(to right,  rgba(43, 43, 43, 0.06) 1px, transparent 1px);
+    background-size: 90px 90px, 90px 90px;   /* taille de la grille */
+    background-position: center;
+    pointer-events:none;
+    height: 32vh;
+}
+
+/* TITRE PRINCIPAL */
+.Details h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--dark-brown);
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.5px;
+}
+
+/* PRIX */
+.Details span {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent); 
+    margin-bottom: 1rem;
+}
+
+/* SOUS-TITRES */
+.Details h3 {
+    color: var(--espresso);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* Petite barre premium sous les h3 */
+.Details h3::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 45px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* PARAGRAPHES */
+.Details p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* LISTES */
+.Details ul {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 0.2rem;
+    list-style: none;
+}
+
+.Details ul li {
+    font-size: 1.05rem;
+    color: var(--espresso);
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+/* Puces personnalisées */
+.Details ul li::before {
+    content: "✴︎";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    color: var(--accent) !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* DIV socila */
+.social{
+    margin-bottom: 5rem;
+}
+/* SECTION RESPONSIIVE */
+@media (max-width: 768px) {
+    .Details {
+        padding: 2.5rem 1.2rem;
+    }
+
+    .Details h2 {
+        font-size: 2rem;
+    }
+
+    .Details h3 {
+        font-size: 1.3rem;
+    }
+
+    .Details p, 
+    .Details ul li {
+        font-size: 1rem;
+    }
+}

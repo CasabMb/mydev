@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/Global.css';
 
 export const prerender = true;
-const title = "Création de supports de communication print | Minma Dev Seine-et-Marne";
+const title = "Création de supports de communication print | Lumi Digital Studio Seine-et-Marne";
 const description = "Création de cartes de visite, flyers, affiches et brochures sur mesure pour valoriser votre image et renforcer la présence de votre marque hors ligne.";
 ---
 
@@ -13,66 +13,81 @@ const description = "Création de cartes de visite, flyers, affiches et brochure
     <Header />
     
     <section class="section communication">
-        <div class="cp-h1-img h1-img">
-            <h1>Supports de communication print</h1>
-        </div>
-        <div class="divh2">
-            <h2>Communication</h2>
-        </div>
-
-
-        <div class="section-text">
-        <p>
-            Pour <span>valoriser votre image de marque</span>, vos supports imprimés doivent refléter la qualité et l’identité de votre entreprise. 
-            Je conçois des <span>supports de communication élégants, professionnels et adaptés à vos objectifs</span>, afin de vous démarquer lors de vos événements, salons ou échanges avec vos clients.
-        </p>
-
-        <h3 class="hidden-right once">Exemples de créations proposées</h3>
-        <ul>
-            <li>Cartes de visite professionnelles</li>
-            <li>Flyers promotionnels ou événementiels</li>
-            <li>Affiches et posters grand format</li>
-            <li>Brochures, catalogues et dépliants</li>
-            <li>En-têtes de lettre et cartes de remerciement</li>
-            <li>Menus pour restaurants, cartes de soins, tarifs, etc.</li>
-        </ul>
-
-        <h3 class="hidden-left once">Pourquoi soigner vos supports imprimés ?</h3>
-        <ul>
-            <li>Renforcer la crédibilité et le professionnalisme de votre marque</li>
-            <li>Créer une identité visuelle forte et mémorable</li>
-            <li>Transmettre vos valeurs à travers des supports de qualité</li>
-            <li>Laisser une impression durable auprès de vos clients</li>
-        </ul>
-        </div>
-
-        <div class="offers">
-            <div class="offer">
-                <h3>Pack Essentiel</h3>
-                <p>Création de cartes de visite et flyers personnalisés, prêts à l’impression.</p>
-                <h4>Dès 150€</h4>
+        <div class="section-inner">
+            <div class="cp-h1-img h1-img">
+                <h1>Supports de communication  </h1>
             </div>
-
-            <div class="offer">
-                <h3>Pack Premium</h3>
-                <p>Création complète de supports à imprimés : cartes, affiches, brochures et dépliants.</p>
-                <h4>Dès 300€</h4>
+            <div class="divh2">
+                <h2>Supports Communication</h2>
             </div>
-
-            <div class="offer">
-                <h3>Pack Identité Visuelle</h3>
-                <p>Refonte ou création de votre identité visuelle à travers vos supports print.</p>
-                <h4>Sur devis</h4>
+    
+    
+            <div class="section-text">
+            <p>
+                Pour <span>valoriser votre image de marque</span>, vos supports imprimés doivent refléter la qualité et l’identité de votre entreprise. 
+                Je conçois des <span>supports de communication élégants, professionnels et adaptés à vos objectifs</span>, afin de vous démarquer lors de vos événements, salons ou échanges avec vos clients.
+            </p>
+    
+            <h3 class="hidden-right once">Exemples de créations proposées</h3>
+            <ul>
+                <li>Cartes de visite professionnelles</li>
+                <li>Flyers promotionnels ou événementiels</li>
+                <li>Affiches et posters grand format</li>
+                <li>Brochures, catalogues et dépliants</li>
+                <li>En-têtes de lettre et cartes de remerciement</li>
+                <li>Menus pour restaurants, cartes de soins, tarifs, etc.</li>
+            </ul>
+    
+            <h3 class="hidden-left once">Pourquoi soigner vos supports imprimés ?</h3>
+            <ul>
+                <li>Renforcer la crédibilité et le professionnalisme de votre marque</li>
+                <li>Créer une identité visuelle forte et mémorable</li>
+                <li>Transmettre vos valeurs à travers des supports de qualité</li>
+                <li>Laisser une impression durable auprès de vos clients</li>
+            </ul>
             </div>
         </div>
 
-        <p>
-        Tous les supports sont conçus avec une approche <span>sur mesure</span>, 
-        pour garantir une communication <span>cohérente, esthétique et percutante</span>.
-        </p>
+        <div class="container-bg">
+            <div class="offers">
+                <a class="offer-link" href="/DetailPackEssentielCommunication">
+                    <div class="offer">
+                        <h3>Pack Essentiel</h3>
+                        <p>Création de supports raffinés pour une première communication élégante.
+                        Cartes de visite, flyers ou visuels simples conçus pour refléter votre image avec sobriété et professionnalisme.</p>
+                        <h4>Dès 150€</h4>
+                    </div>
+                </a>
+    
+                <a class="offer-link" href="/DetailPackStandardCommunication">
+                    <div class="offer">
+                        <h3>Pack Standard</h3>
+                        <p>Création de plusieurs supports harmonisés, pensés pour offrir une communication cohérente et impactante.
+                            Une approche soignée qui sublime votre identité sur l’ensemble de vos supports.</p>
+                        <h4>Dès 300€</h4>
+                    </div>
+                </a>
+    
+                <a class="offer-link" href="/DetailPackPremiumCommunication">
+                    <div class="offer">
+                        <h3>Pack Premium</h3>
+                        <p>Création de supports avancés ou multi-pages : menus, catalogues, brochures ou documents événementiels.
+                            Une mise en page structurée, élégante et pensée pour magnifier votre marque.</p>
+                        <h4>Dès 500€</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
 
-        <div class="cta hidden-top">
-        <a href="/#contact">Demander un devis personnalisé</a>
+        <div class="section-inner">
+            <p>
+            Tous les supports sont conçus avec une approche <span>sur mesure</span>, 
+            pour garantir une communication <span>cohérente, esthétique et percutante</span>.
+            </p>
+    
+            <div class="cta hidden-top">
+            <a href="/#contact">Demander un devis personnalisé</a>
+            </div>
         </div>
     </section>
 

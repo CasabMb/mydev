@@ -132,9 +132,10 @@
     .testimonial-card:hover .card-inner {
         transform: rotateY(180deg);
     }
-    /* .flip-btn{
+    .flip-btn {
         display: none;
-    } */
+    }
+    
 }
 
 @media (max-width: 768px) {

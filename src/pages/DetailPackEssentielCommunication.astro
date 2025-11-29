@@ -1,0 +1,41 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/Global.css';
+import '../styles/PagesDetails.css';
+
+export const prerender = true;
+
+const title = "Pack Essentiel | Supports de communication | Minma Dev";
+const description = "Pack Essentiel : création de supports simples, élégants et professionnels comme cartes de visite, flyers ou visuels promotionnels.";
+---
+
+<Layout {title} {description}>
+    <Header />
+
+        <section class="Details">
+            <h2>Pack Essentiel</h2>
+            <span>À partir de 150€</span>
+    
+            <h3>Description</h3>
+            <p>
+                Le Pack Essentiel permet de créer des supports visuels simples, clairs et élégants. 
+                Chaque design est pensé pour refléter votre univers tout en assurant une communication professionnelle et accessible.
+            </p>
+    
+            <h3>Ce qui est inclus</h3>
+            <ul>
+                <li>1 à 2 supports (carte de visite, flyer, petit visuel promotionnel…)</li>
+                <li>Design personnalisé</li>
+                <li>Mise en page moderne et élégante</li>
+                <li>Fichiers livrés en haute qualité (impression + numérique)</li>
+                <li>1 série de retouches</li>
+            </ul>
+    
+            <h3>Idéal pour</h3>
+            <p>Les entrepreneurs qui souhaitent une communication simple, professionnelle et maîtrisée.</p>
+        </section>
+
+    <Footer />
+</Layout>

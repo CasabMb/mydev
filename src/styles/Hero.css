@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
 }
 
 .hero-bg {
@@ -91,7 +92,9 @@
 }
 
 .hero-content p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-align: left;
+  /* font-size: clamp(1rem, 2vw, 1.2rem); */
   font-weight: 300;
   color: var(--Secondary-text-color);
   margin-bottom: 2rem;

@@ -50,14 +50,13 @@
   text-transform: uppercase;
   color: var(--Principal-color);
   opacity: 0.9;
-  animation: autoRun 15s linear infinite;
-  animation-delay: calc((15s / var(--quantity)) * (var(--position) - 1));
+  animation: autoRun 20s linear infinite;
+  animation-delay: calc((20s / var(--quantity)) * (var(--position) - 1));
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.slider .item:hover {
-  transform: scale(1.1);
-  opacity: 1;
+.slider:hover .item  {
+  animation-play-state: paused;
 }
 
 @keyframes autoRun {
@@ -86,4 +85,9 @@
   .slider .item {
     font-size: 1rem;
   }
+  .slider .item {
+    width: 200px;
+  animation: autoRun 25s linear infinite;
+  animation-delay: calc((25s / var(--quantity)) * (var(--position) - 1));
+}
 }

@@ -176,12 +176,18 @@ p{
 
 /* SECTION GENERIQUE */
 .section {
+  width: 100%;
+  position: relative;
+}
+
+.section .section-inner {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 1.5rem 3rem 1.5rem;
   text-align: center;
-  position: relative;
+  box-sizing: border-box;
 }
+
 
 .section h1 {
   font-size: clamp(32px, 5vw, 38px);
@@ -245,17 +251,26 @@ p{
   font-weight: bold;
   color: var(--accent);
 }
+.container-bg {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  height: auto;
+  background: var(--Principal-color); 
+  padding: 2.5rem 1.5rem 1rem 1.5rem;    
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
 
 /* OFFERS */
 .section .offers {
-  width: 99.2vw;
-  max-width: 99.2vw;
-  margin-left: calc(50% - 50vw);   
-  margin-right: calc(50% - 50vw);
-  margin-bottom: 3rem;
-  padding: 20px;                   
-  box-sizing: border-box;
-  background: var(--Principal-color);
+  max-width: 1400px;
+  margin: 0 auto 3rem auto;
+  padding: 20px 20px 0 20px;
+  background: var(--Principal-color); 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
@@ -264,13 +279,13 @@ p{
 .section .offer {
   border-radius: var(--radius-m);
   padding: 1.5rem;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow .3s ease;
   text-align: left;
   position: relative;
 }
 
-.section .offer:not(:last-child)::after {
+.offer:not(:last-child)::after {
   content: "";
   position: absolute;
   top: 15%;
@@ -279,6 +294,21 @@ p{
   height: 70%;
   background: var(--Page-color);
 }
+.offer-link {
+    position: relative;
+    display: block;
+}
+
+.offer-link:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: -15px;
+    width: 2px;
+    height: 70%;
+    background: var(--Page-color);
+}
+
 
 .section .offer h3 {
   margin-bottom: 0.5rem;
@@ -313,6 +343,16 @@ p{
   pointer-events:none;
   height: 30vh;
 }
+.offer-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.offer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(250, 250, 250, 0.435);
+}
+
 
 /* Titre avec effet machine à écrire */
 .sv-h1-img h1,
@@ -350,12 +390,43 @@ p{
 }
 
 /* ✅ Mobile : permettre les retours à la ligne pendant la frappe */
+/* Vue tablette : le dernier pack prend toute la largeur */
+@media (min-width: 700px) and (max-width: 1100px) {
+  .section .offers {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+
+  .section .offers .offer-link:last-child {
+    grid-column: 1 / -1;     
+    max-width: 600px;         
+    margin: 0 auto;           
+  }
+}
+
+@media (max-width: 890px) {
+  .offer-link:not(:last-child)::after {
+      display: none;
+  }
+}
 @media (max-width: 600px) {
   .sv-h1-img h1,
   .rs-h1-img h1,
   .cp-h1-img h1 {
     white-space: normal;
     word-break: break-word;
+  }
+  .offer-link {
+      position: relative;
+  }
+
+  .offer-link:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--Page-color);
   }
 }
 
@@ -389,17 +460,26 @@ p{
 
 
 
-/* SITE VITRINE */
-.vitrine .divh2 {
+/* divh2 */
+.section-inner .divh2 {
   position: absolute;
-  top: 25%;
-  left: -11%;
   transform: rotate(-90deg);
+  width: fit-content;
+  margin: 0 1rem;
 }
 .divh2 h2{
   font-family: script;
   font-size: 2.5rem;
 }
+
+/* SITE VITRINE */
+.vitrine .divh2 {
+  width: 50%;
+  top: 23%;
+  left: -20%;
+
+}
+
 .deco{
   background-color: var(--Principal-color);
   color: var(--Secondary-text-color);
@@ -416,32 +496,20 @@ p{
 
 /* COMMUNICATION */
 .communication .divh2 {
-    position: absolute;
-    top: 30%;
+    top: 25%;
     left: -20%;
-    transform: rotate(-90deg);
-    margin: 0 1rem;
     width: 50%;
 }
 
 /* RESEAUX */
 .reseaux .divh2 {
-    position: absolute;
-    top: 24%;
+    top: 22%;
     left: -14%;
-    transform: rotate(-90deg);
-    margin: 0 1rem;
     width: 40%;
 }
 
 
 /* 📱 RESPONSIVE GLOBAL POUR TOUTES LES SECTIONS */
-@media (max-width: 1060px) {
-  .vitrine .divh2 {
-    left: -18%;
-  }
-}
-
 
 @media (max-width: 900px) {
   .vitrine .divh2, .communication .divh2, .reseaux .divh2  {

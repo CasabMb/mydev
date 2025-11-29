@@ -1,0 +1,44 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/Global.css';
+import '../styles/PagesDetails.css';
+
+export const prerender = true;
+const title = "Création de site vitrine Essentiel | Lumi Digital Studio";
+const description = "Pack Site Vitrine Essentiel : un site moderne, rapide et fiable, idéal pour une première présence professionnelle. Maintenance disponible en option.";
+---
+
+<Layout {title} {description}>
+    <Header />
+        <section class="Details">
+            <h2> Pack Site Vitrine Essentiel</h2>
+    
+            <span>À partir de 900€</span>
+    
+    
+            <h3>Description</h3>
+            <p>Le Pack Essentiel offre un site vitrine moderne, rapide et parfaitement adapté à une première présence en ligne professionnelle.
+                Il s’agit d’un site conçu pour être fiable, performant et sécurisé, nécessitant l’intervention d’un développeur pour toute modification structurelle ou mise à jour technique importante.
+    
+                Une offre de maintenance peut être mise en place selon la nature et la fréquence des ajustements souhaités.
+            </p>
+    
+            <h3>Ce qui est inclus</h3>
+            <ul>
+                <li>3 à 6 pages</li>
+                <li>Design personnalisé</li>
+                <li>SEO de base</li>
+                <li>Optimisation du chargement</li>
+                <li>Formulaire de contact</li>
+                <li>Version mobile et tablette</li>
+                <li>Sécurisation du site</li>
+                <li>Maintenance disponible en option</li>
+            </ul> 
+    
+            <h3>Idéal pour</h3>
+            <p>Les entrepreneurs souhaitant un site esthétique, fiable et professionnel, sans avoir à gérer la partie technique ou les mises à jour.</p>
+        </section>
+    <Footer />
+</Layout>

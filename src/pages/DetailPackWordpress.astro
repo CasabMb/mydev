@@ -1,0 +1,45 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/Global.css';
+import '../styles/PagesDetails.css';
+
+export const prerender = true;
+
+const title = "Création de site vitrine WordPress administrable | Lumi Digital Studio";
+const description = "Pack Site Vitrine WordPress : un site administrable, simple à gérer et optimisé pour votre communication.";
+---
+
+<Layout {title} {description}>
+    <Header />
+
+    <section class="Details">
+        <h2>Pack Site Vitrine Administrable (WordPress)</h2>
+        <span>À partir de 1300€</span>
+    
+        <h3>Description</h3>
+        <p>
+            Ce pack est dédié aux entreprises qui souhaitent garder la maîtrise de leur site et gérer leurs contenus en toute simplicité.
+            Vous bénéficiez d’un design sur mesure, d’une structure optimisée et d’une interface intuitive pour modifier textes, images et pages selon vos besoins.
+        </p>
+    
+        <h3>Ce qui est inclus</h3>
+        <ul>
+            <li>4 à 10 pages</li>
+            <li>Design responsive et personnalisé</li>
+            <li>SEO optimisé</li>
+            <li>Interface WordPress intuitive</li>
+            <li>Sécurisation et sauvegardes</li>
+            <li>Préparation à l’indexation Google</li>
+            <li>Formation à l’utilisation</li>
+        </ul>
+    
+        <h3>Idéal pour</h3>
+        <p>
+            Les entreprises qui veulent un site professionnel, évolutif et facile à administrer, même sans connaissances techniques.
+        </p>
+    </section>
+
+    <Footer />
+</Layout>

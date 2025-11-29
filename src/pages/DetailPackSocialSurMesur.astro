@@ -1,0 +1,41 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/Global.css';
+import '../styles/PagesDetails.css';
+
+export const prerender = true;
+
+const title = "Gestion réseaux sociaux sur mesure | Minma Dev";
+const description = "Pack Sur Mesure : stratégie, création de contenus, suivi et optimisation pour une communication complète et haut de gamme.";
+---
+
+<Layout {title} {description}>
+    <Header />
+
+        <section class="Details">
+            <h2>Pack Sur Mesure</h2>
+            <span>À partir de 600€/mois</span>
+    
+            <h3>Description</h3>
+            <p>
+                Un accompagnement global et personnalisé, pensé pour les marques qui souhaitent déléguer intégralement leur communication digitale. L’objectif : des contenus modernes, une ligne éditoriale claire, et une présence inspirante.
+            </p>
+    
+            <h3>Ce qui est inclus</h3>
+            <ul>
+                <li>Stratégie mensuelle personnalisée</li>
+                <li>Création de 10 à 20 contenus par mois : posts, carrousels, stories, vidéos courtes</li>
+                <li>Accompagnement rédactionnel (légendes optionnelles)</li>
+                <li>Harmonisation visuelle</li>
+                <li>1 rendez-vous mensuel</li>
+                <li>1 retouches par contenu</li>
+            </ul>
+    
+            <h3>Idéal pour</h3>
+            <p>Les marques qui souhaitent un accompagnement haut de gamme complet, cohérent et orienté résultats.</p>
+        </section>
+
+    <Footer />
+</Layout>

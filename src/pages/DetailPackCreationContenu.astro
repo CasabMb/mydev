@@ -1,0 +1,65 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import '../styles/Global.css';
+import '../styles/PagesDetails.css';
+
+export const prerender = true;
+
+const title = "Création de contenu réseaux sociaux | Pack 6 visuels | Minma Dev";
+const description = "Pack Création de Contenu : 6 ou 10 visuels par mois, designs modernes et adaptés à votre image pour une présence régulière.";
+---
+
+<Layout {title} {description}>
+    <Header />
+
+        <section class="Details">
+            <div class="social">
+                <h2>Pack Création de Contenu</h2>
+                <span>À partir de 250€/mois</span>
+            
+                <h3>Description</h3>
+                <p>
+                    Ce pack est conçu pour vous offrir une présence régulière et soignée sur vos réseaux sociaux. Chaque visuel est pensé pour s’intégrer avec fluidité dans votre univers, tout en apportant une touche moderne et professionnelle.    
+                </p>
+            
+                <h3>Ce qui est inclus</h3>
+                <ul>
+                    <li>Création de 6 visuels par mois : posts, carrousels simples, annonces, visuels d’engagement</li>
+                    <li>Design sur mesure aligné à votre identité visuelle</li>
+                    <li>Format optimisé pour chaque plateforme</li>
+                    <li>1 série de retouches</li>
+                </ul>
+            
+                <h3>Idéal pour</h3>
+                <p>
+                    Les entrepreneurs souhaitant maintenir une présence élégante et régulière en ligne, sans charge de travail supplémentaire.
+                </p>
+            </div>
+            <div class="social">
+                <h2>Pack Création de Contenu Plus</h2>
+                <span>À partir de 450€/mois</span>
+            
+                <h3>Description</h3>
+                <p>
+                    Une solution idéale pour renforcer votre visibilité avec un volume plus important de contenus raffinés et harmonisés. Chaque création est conçue pour capter l’attention et sublimer votre image.    
+                </p>
+            
+                <h3>Ce qui est inclus</h3>
+                <ul>
+                    <li>Création de 10 visuels par mois : posts, carrousels, visuels promotionnels, stories, vidéos</li>
+                    <li>Design sur mesure aligné à votre identité visuelle</li>
+                    <li>Format optimisé pour chaque plateforme</li>
+                    <li>1 série de retouches</li>
+                </ul>
+            
+                <h3>Idéal pour</h3>
+                <p>
+                    Les marques cherchant à intensifier leur communication avec des contenus au rendu professionnel et impactant.
+                </p>
+            </div>
+        </section>
+
+    <Footer />
+</Layout>
