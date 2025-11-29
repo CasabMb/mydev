@@ -7,16 +7,20 @@ import Slider from './Slider.astro';
   <div class="hero-bg"></div>
 
   <div class="hero-content">
-    <h1>Développement Web</h1>
-    <p>
-      J’accompagne les indépendants et les marques dans le développement de leur visibilité
-      en créant des sites vitrines et des supports visuels percutants, 
-      pour une présence en ligne et hors ligne claire et mémorable.
-    </p>
-    <!-- <p>
-      Création de sites internet performants et supports visuels professionnels,<br />
-      pour une présence en ligne et hors ligne claire et impactante
-    </p> -->
+    <h1>Développement web</h1>
+
+    <div class="hero-layout">
+      <h2>Création de solutions numériques et supports visuels</h2>
+
+      <p>
+        J’accompagne les indépendants et les marques à développer leur 
+        <span class="hero-highlight">visibilité</span> grâce à des 
+        <span class="hero-highlight">sites vitrines</span> et des 
+        <span class="hero-highlight">supports visuels</span> percutants,
+        pour une présence en ligne et hors ligne claire et mémorable.
+      </p>
+    </div>
+
     <a href="#contact" class="cta-btn">Discutons de votre projet</a>
   </div>
 
@@ -27,11 +31,10 @@ import Slider from './Slider.astro';
 
 <Slider />
 
-<!-- ✅ JS pur, pas de is:client, pas d’annotations TS -->
 <script is:inline lang="js">
-  function createCircularText(element, text, radius = 60) {
+  function createCircularText(element, text, radius = 75) {
     const letters = text.split("");
-    const angleStep = 360 / letters.length;
+    const angleStep = 350 / letters.length;
 
     letters.forEach((letter, i) => {
       const span = document.createElement("span");
@@ -49,15 +52,11 @@ import Slider from './Slider.astro';
   document.addEventListener('DOMContentLoaded', () => {
     const circularText = document.getElementById("circularText");
     if (circularText) {
-      createCircularText(circularText, "✦ LUM I ✦ D IG ITAL ✦ STUD IO ✦ DÉVELOPPEUSE WEB");
+      createCircularText(
+        circularText,
+        "✦ LUMI ✦ DIGITAL ✦ STUDIO ✦ DÉVELOPPEMENT WEB"
+      );
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          circularText.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(circularText);
     }
 
     const bg = document.querySelector('.hero-bg');

@@ -1,3 +1,7 @@
+/* ----------------------------- */
+/* SECTION HERO                  */
+/* ----------------------------- */
+
 .hero {
   position: relative;
   width: 100%;
@@ -19,29 +23,34 @@
   will-change: transform;
   z-index: 0;
 }
-/* Contenu centré effet glass */
+
+/* ----------------------------- */
+/* CONTENEUR PRINCIPAL           */
+/* ----------------------------- */
+
 .hero-content {
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(3px);
   border-radius: var(--radius-m, 16px);
-  padding: 3rem;
-  max-width: 900px;
-  text-align: center;
+  padding: 3rem 1.5rem;
+  max-width: 1400px;
+  width: 90%;
   color: var(--Secondary-text-color);
   animation: fadeIn 1s ease forwards;
-  overflow: hidden; 
+  overflow: hidden;
   margin-top: -4rem;
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- Bordure animée façon étoile filante --- */
-.hero-content::before {
+/* Bordure animée façon "étoile filante" */
+/*.hero-content::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1.5px; /* épaisseur de la bordure */
+  padding: 1.5px;
   background: linear-gradient(
     120deg,
     #ff8ad8,
@@ -69,40 +78,70 @@
   z-index: -1;
   opacity: 0.2;
 }
-
-/* --- Animation de défilement du dégradé --- */
 @keyframes borderFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}*/
 
+/* ----------------------------- */
+/* TYPOGRAPHIE H1 / H2 / P       */
+/* ----------------------------- */
 
-/* Titre + paragraphe */
+/* H1 petit, centré en haut */
 .hero-content h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-align: center;
+  color: var(--Secondary-text-color);
   margin-bottom: 1rem;
-  color: var(--Secondary-text-color);
 }
 
-.hero-content p {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+/* Layout en 2 colonnes : H2 large + P à droite */
+.hero-layout {
+  max-width: 1200px;
+  margin: 0 auto;             
+  display: flex;
+  align-items: center;        
+  justify-content: center;     
+  gap: 2.5rem;
+}
+
+/* H2 très grand comme sur le visuel */
+.hero-layout h2 {
+  flex: 1.2;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.2;
+  color: var(--Secondary-text-color);
+  max-width: 720px;
+}
+
+/* Paragraphe plus petit, “rentré” visuellement sous le h2 */
+.hero-layout p {
+  flex: 0.9;
+  max-width: 420px;                     
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--Secondary-text-color);
   text-align: left;
-  /* font-size: clamp(1rem, 2vw, 1.2rem); */
-  font-weight: 300;
-  color: var(--Secondary-text-color);
-  margin-bottom: 2rem;
+  margin-top: 2.5rem;                          
 }
 
-/* Bouton CTA */
+
+/* Mots en surbrillance dans le paragraphe */
+.hero-highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ----------------------------- */
+/* CTA BUTTON                    */
+/* ----------------------------- */
+
 .cta-btn {
   display: inline-block;
+  align-self: center;
   padding: 12px 24px;
   background-color: var(--accent);
   color: var(--Secondary-text-color);
@@ -110,6 +149,7 @@
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
 }
 
 .cta-btn:hover {
@@ -119,15 +159,16 @@
   box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
 }
 
-/* ------------------- */
-/* TEXTE CIRCULAIRE   */
-/* ------------------- */
+/* ----------------------------- */
+/* TEXTE CIRCULAIRE              */
+/* ----------------------------- */
+
 .circular-text-container {
   position: absolute;
   top: 3rem;
   right: 5rem;
-  width: clamp(60px, 8vw, 100px);
-  height: clamp(60px, 8vw, 100px);
+  width: clamp(80px, 10vw, 120px);
+  height: clamp(80px, 10vw, 120px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +193,7 @@
   left: 50%;
   top: 50%;
   transform-origin: 0 0;
-  font-size: clamp(0.5rem, 0.8vw, 0.7rem);
+  font-size: clamp(0.55rem, 0.8vw, 0.85rem);
   color: var(--Secondary-text-color);
   font-weight: bold;
   text-transform: uppercase;
@@ -161,12 +202,14 @@
 
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* ------------------- */
-/* ANIMATIONS          */
-/* ------------------- */
+
+/* ----------------------------- */
+/* ANIMATIONS GLOBALES           */
+/* ----------------------------- */
+
 [data-animate="fade-up"] {
   opacity: 0;
   transform: translateY(30px);
@@ -185,15 +228,51 @@
   to { opacity: 1; }
 }
 
-/* ------------------- */
-/* RESPONSIVE          */
-/* ------------------- */
+/* ----------------------------- */
+/* RESPONSIVE                    */
+/* ----------------------------- */
+
+/* Décalage stylé du paragraphe seulement sur grands écrans */
+
+
+@media (max-width: 900px) {
+  .hero-layout {
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .hero-layout h2 {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+  
+
+  .hero-layout p {
+    max-width: none;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .cta-btn {
+    align-self: center;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content {
     width: 90%;
     padding: 2rem;
+    margin-top: -2rem;
   }
+
   .circular-text-container {
     display: none;
+  }
+}
+@media (max-width: 320px) {
+  .hero {
+    height: 160vh;
+  }
+  .hero-layout h2{
+    font-size: 1.5rem;
   }
 }
