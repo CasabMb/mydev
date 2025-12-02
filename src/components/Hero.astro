@@ -1,24 +1,31 @@
 ---
+import Image from 'astro/components/Image.astro';
 import '../styles/Hero.css';
 import Slider from './Slider.astro';
+import ordi from '../assets/images/lumi-digital-studio-site-vitrine.png';
 ---
 
 <section class="hero">
   <div class="hero-bg"></div>
 
   <div class="hero-content">
-    <h1>Développement web</h1>
+    <!-- <h1>Développement web</h1> -->
 
-    <div class="hero-layout">
-      <h2>Création de solutions numériques et supports visuels</h2>
-
-      <p>
-        J’accompagne les indépendants et les marques à développer leur 
-        <span class="hero-highlight">visibilité</span> grâce à des 
-        <span class="hero-highlight">sites vitrines</span> et des 
-        <span class="hero-highlight">supports visuels</span> percutants,
-        pour une présence en ligne et hors ligne claire et mémorable.
-      </p>
+    <div class="hero-row">
+      <div class="hero-image">
+        <Image src={ordi} alt="Ordinateur portable avec à ecran développement web" />
+      </div>
+      <div class="hero-layout">
+        <h2>Création de solutions numériques et supports visuels</h2>
+  
+        <p>
+          J’accompagne les indépendants et les marques à développer leur 
+          <span class="hero-highlight">visibilité</span> grâce à des 
+          <span class="hero-highlight">sites vitrines</span> et des 
+          <span class="hero-highlight">supports visuels</span> percutants,
+          pour une présence en ligne et hors ligne claire et mémorable.
+        </p>
+      </div>
     </div>
 
     <a href="#contact" class="cta-btn">Discutons de votre projet</a>

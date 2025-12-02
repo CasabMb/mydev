@@ -111,6 +111,11 @@
   }
 }
 
+@media (max-width: 900px) {
+  .vision-vertical-line.animate-up, .vision-vertical-line.animate-down{
+    height: 65%;
+  }
+}
 @media (max-width: 600px) {
   .vision-container {
     flex-direction: column;
