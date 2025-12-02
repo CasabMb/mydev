@@ -9,6 +9,7 @@
     letter-spacing: 2px;
 }
 #mentions-legales h1, #politique-confidentialite h1{
+    color: var(--accent);
     text-align: center;
     margin: 40px 0;
 }
@@ -17,5 +18,18 @@
     margin-bottom: 10px;
 }
 #politique-confidentialite h3{
+    margin-top: 10px;
+    color: var(--accent);
+}
+#mentions-legales span{
+    color: var(--accent);
+}
+#mentions-legales a{
+    text-decoration: none;
+    &:hover{
+        color: var(--accent);
+    }
+}
+.space-up{
     margin-top: 10px;
 }
