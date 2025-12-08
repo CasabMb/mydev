@@ -41,11 +41,6 @@
   align-items: center;
 }
 
-.carousel-section h2 {
-  color: var(--accent);
-  margin-bottom: 0;
-}
-
 .carousel-slide.active {
   opacity: 1;
   transform: scale(1) translateX(0);
@@ -103,6 +98,7 @@
 .slide-content h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: var(--Principal-text-color);
 }
 
 .slide-content p {
@@ -135,7 +131,10 @@
 }
 
 .project-link:hover {
-    background-color: var(--accent);
+  background-color: var(--Secondary-text-color);
+  color: var(--Principal-text-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(3, 2, 2, 0.489);
 }
 
 /* Boutons flèches */

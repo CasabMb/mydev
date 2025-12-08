@@ -35,7 +35,7 @@
 .about-overlay {
   position: absolute;
   inset: 0;
-  background: url('../assets/images/hello-lumi-digital-studio-paris3.jpg') center 70% / cover no-repeat;
+  background: url('../assets/images/lumi-digital-studio-seine-et-marne-77-paris-2.webp') center 70% / cover no-repeat;
   filter: blur(8px) brightness(0.6);
   opacity: 0.6;
   z-index: 0;

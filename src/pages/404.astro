@@ -1,24 +1,39 @@
 ---
 import '../styles/404.css';
+import '../styles/Global.css';
 import Layout from '../layouts/Layout.astro';
 
 export const prerender = true;
-const title = "Page 404 | Lumi Digital Studio";
+const title = "Page introuvable | Lumi Digital Studio";
 ---
 
+<Layout {title}>
+    <section class="error-404">
+        <div class="error-404__bg"></div>
+        <div class="error-404__card">
+            <p class="error-404__signature">Lumi Digital <span class="signature">Studio</span></p>
+            <span class="error-404__pill">Erreur 404</span>
 
+            <h1>Oups, cette page s’est perdue</h1>
 
-<Layout {title}>  
-    <div class="container">
-        <h1>404</h1>
-        <h2>Oups ! Cette page est introuvable.</h2>
-        <p>
-        La page que vous cherchez n’existe pas ou a peut-être été déplacée.  
-        Pas de panique, vous pouvez revenir à l’accueil ou explorer mes projets !
-        </p>
-        <div class="buttons">
-            <a href="/" class="btn">Retour à l’accueil</a>
-            <a href="/#projets-recents" class="btn secondary">Voir mes projets</a>
+            <p class="error-404__intro">
+                La page que vous cherchez n’existe pas ou n’est plus disponible.
+            </p>
+
+            <p class="error-404__text">
+                Pas de panique, vous pouvez revenir à l’accueil ou découvrir mes projets :
+                <span>sites vitrines</span>, <span>supports visuels</span> et
+                <span>créations digitales</span> pensés pour valoriser votre image.
+            </p>
+
+            <div class="error-404__buttons">
+                <a href="/" class="error-404__btn error-404__btn--primary">
+                ← Retour à l’accueil
+                </a>
+                <a href="/#projets-recents" class="error-404__btn error-404__btn--secondary">
+                Voir mes projets
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
 </Layout>
