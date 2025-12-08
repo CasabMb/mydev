@@ -102,11 +102,15 @@
 }
 
 .contact-list a:hover {
-  text-decoration: underline;
+  transform: translateY(-3px);
 }
 
 .icon {
   width: 35px;
+  height: auto;
+}
+.tel{
+  width: 30px;
   height: auto;
 }
 

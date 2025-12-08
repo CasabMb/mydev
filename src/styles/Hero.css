@@ -16,7 +16,7 @@
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url(../assets/images/hero-bg.jpg);
+  background-image: url(../assets/images/hero-bg.webp);
   background-size: cover;
   background-position: center;
   transform-origin: center center;
@@ -127,7 +127,10 @@
   margin-top: 2.5rem;                          
 }
 
+.hero-row{
 
+  margin: 3rem 0;
+}
 /* Mots en surbrillance dans le paragraphe */
 .hero-highlight {
   color: var(--accent);
@@ -197,7 +200,7 @@
 .circular-text-container {
   position: absolute;
   top: 3rem;
-  right: 5rem;
+  right: 3rem;
   width: clamp(80px, 10vw, 120px);
   height: clamp(80px, 10vw, 120px);
   display: flex;
@@ -263,20 +266,22 @@
 /* RESPONSIVE                    */
 /* ----------------------------- */
 
-/* Décalage stylé du paragraphe seulement sur grands écrans */
-
-
+@media (min-width: 1600px) {
+  .circular-text-container {
+    display: none;
+  }
+}
 @media (max-width: 900px) {
   .hero {
-    height: auto;              /* ✅ on laisse le contenu décider */
-    min-height: 100svh;        /* ✅ unité "safe" sur mobile */
-    overflow: visible;         /* ✅ plus de coupure de hero-row */
-    padding: 3rem 0 4rem;      /* un peu d’air en haut / bas */
-    align-items: flex-start;   /* optionnel : le contenu commence en haut */
+    height: auto;              
+    min-height: 100svh;        
+    overflow: visible;       
+    padding: 3rem 0 4rem;      
+    align-items: flex-start;  
   }
 
   .hero-content {
-    margin-top: 0;             /* pour compenser ton -4rem du desktop */
+    margin-top: 0;             
   }
 
   .hero-layout {

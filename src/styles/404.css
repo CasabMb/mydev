@@ -1,87 +1,147 @@
-:root {
-    --Principal-text-color: #5F5143;
-    --Secondary-text-color: #ffff;
-    --Principal-color: #D2B589;
-    --Secondary-color: #F2DBC6;
-    --Third-color: #CFDBE5;
-    --Btn-hover-color1: #5F5143;
-    --Btn-hover-color2: #9cb5c9;
+/* ========= PAGE 404 ========= */
+
+.error-404 {
+  position: relative;
+  min-height: calc(100vh - 140px); /* laisse respirer avec le header/footer */
+  padding: 4rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--Page-color);
+  overflow: hidden;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, var(--Secondary-color), var(--Third-color));
-    color: var(--Principal-text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
+/* léger fond texturé façon “grille”, inspiré de tes autres sections */
+.error-404__bg {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(10, 10, 10, 0.04) 1px, transparent 1px);
+  background-size: 90px 90px, 90px 90px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.container {
-    max-width: 600px;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+/* Carte centrale */
+.error-404__card {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  text-align: center;
 }
 
-h1 {
-    font-size: 8rem;
-    font-weight: 800;
-    margin: 0;
-    color: var(--Principal-color);
+/* Petit label au-dessus */
+.error-404__pill {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--Principal-text-color);
+/* Titre principal */
+.error-404__card h1 {
+  font-family: 'Bestigia', serif;
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  letter-spacing: 2px;
+  margin: 0 0 1rem;
+  color: black;
 }
 
+/* Sous-texte / intro */
+.error-404__intro {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
 
-p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    color: var(--Principal-text-color);
+/* Paragraphe principal */
+.error-404__text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.error-404__text span {
+  font-weight: 600;
 }
 
 /* Boutons */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+.error-404__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
 }
 
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.6rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    background: var(--Principal-color);
-    color: var(--Secondary-text-color);
-    &:hover {
-        background: var(--Btn-hover-color1);
-    }
+.error-404__btn {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  border-radius: var(--radius-s);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-top: 2rem;
+}
+
+/* Bouton principal */
+.error-404__btn--primary {
+  background: var(--Btn-color2);
+  color: var(--Secondary-text-color);
+  border: 2px solid transparent;
+}
+.error-404__btn--primary:hover{
+  background-color: var(--Secondary-text-color);
+  color: var(--Principal-text-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(3, 2, 2, 0.489);
+}
+
+/* Bouton secondaire */
+.error-404__btn--secondary {
+  color: var(--accent);
 }
 
 
-.btn.secondary {
-    background: transparent;
-    border: 2px solid var(--Principal-color);
-    color: var(--Principal-text-color);
-    &:hover {
-        background: var(--Btn-hover-color2);
-        border-color: var(--Btn-hover-color2);
-        color: var(--Secondary-text-color);
-    }
+.error-404__btn--secondary:hover {
+  background-color: var(--Secondary-text-color);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(251, 176, 187, 0.665);
 }
 
+.error-404__signature {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--dark-brown-60);
+}
+.signature{
+    font-family: Bacalisties;
+}
 
+/* ========= RESPONSIVE ========= */
+
+@media (max-width: 640px) {
+  .error-404 {
+    padding: 3rem 1.2rem;
+  }
+
+  .error-404__card {
+    padding: 2.5rem 1.8rem;
+  }
+
+  .error-404__buttons {
+    flex-direction: column;
+  }
+
+  .error-404__btn {
+    width: 100%;
+    text-align: center;
+  }
+}

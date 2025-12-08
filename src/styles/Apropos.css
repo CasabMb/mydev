@@ -57,8 +57,10 @@
 }
 
 .apropos-cta:hover {
-  background-color: var(--accent);
+  background-color: var(--Secondary-text-color);
+  color: var(--Principal-text-color);
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(3, 2, 2, 0.489);
 }
 
 /* --- SECTION OBJECTIFS --- (inchangée) --- */
