@@ -11,8 +11,8 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preload" href="/fonts/Poppins-Light.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/fonts/Bestigia.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./fonts/Poppins-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./fonts/Bestigia.ttf" as="font" type="font/ttf" crossorigin>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -22,15 +22,15 @@ const { title, description } = Astro.props;
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/Minma-Dev-Developpeuse-web-site-vitrine-Seine-Et-Marne.webp" /> 
-    <meta property="og:url" content="https://www.reikizena.fr" />
+    <meta property="og:image" content="./public/lumi-digital-studio-creation-sites-vitrine-flyers-contenu-reseaux-sociau.webp" /> 
+    <meta property="og:url" content="https://www.lumidigitalstudio.fr" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/Minma-Dev-Developpeuse-web-site-vitrine-Seine-Et-Marne.webp" />
+    <meta name="twitter:image" content="./public/lumi-digital-studio-creation-sites-vitrine-flyers-contenu-reseaux-sociau.webp" />
   </head>
 
   <body>
@@ -39,7 +39,6 @@ const { title, description } = Astro.props;
     <slot />
   </body>
 
-  <!-- ✅ Script corrigé -->
   <script>
     // === Effet machine à écrire ===
     const titles = document.querySelectorAll(".sv-h1-img h1, .rs-h1-img h1, .cp-h1-img h1");
