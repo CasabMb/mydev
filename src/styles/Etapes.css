@@ -167,6 +167,9 @@
         height: 30%; 
         transform: translateY(100%);;
     }
+    .work-process h2 {
+        max-width: 85%;
+    }
 }
 
 /* ==== Très petits écrans ==== */
@@ -178,5 +181,8 @@
     }
     .work-process::after { 
         transform: translateY(70%);
+    }
+    .work-process h2 {
+        max-width: 95%;
     }
 }
