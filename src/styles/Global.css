@@ -125,8 +125,6 @@ p{
     border-radius:var(--radius-s);
     background-color:rgba(55, 40, 33, 0.331);
     border: 3px solid var(--dark-brown);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
     transition: transform 0.5s ease-out;
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), 
         -8px -6px 12px rgba(221, 113, 144, 0.082);;
