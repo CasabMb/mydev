@@ -62,6 +62,7 @@
     --Principal-color: var(--dark-brown);
     --Secondary-color: var(--espresso);
     --accent:   var(--blush) ;
+   /* --accent:   var(--blush) ;*/
     --Principal-text-color: var(--espresso);
     --Secondary-text-color:var(--sand);
     --Third-text-color: var(--dark-brown);
@@ -578,4 +579,11 @@ p{
   }
 }
 @media (max-width: 900px) {
+}
+
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
